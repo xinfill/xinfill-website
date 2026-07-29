@@ -1,7 +1,7 @@
 import { CONFIG } from "./config.js";
+import { openStandalonePage, leaveStandalonePage, showHomeChrome } from "./view-chrome.js";
 
 const STORAGE_KEY = "xinfill-cart";
-const PANEL_IDS = ["shop", "models", "custom", "dostawa", "contact", "product-page"];
 
 function loadCart() {
   try {
@@ -94,55 +94,28 @@ function updateCount(cart) {
   countEl.textContent = String(total);
 }
 
+function formatCartText(cart) {
+  return cart
+    .map((it) => {
+      const meta = [];
+      if (it.type === "model") meta.push("model STL/3MF");
+      if (it.color) meta.push(`kolor: ${it.color}`);
+      if (it.infill != null && it.infill !== "") meta.push(`infill: ${it.infill}%`);
+      if (it.personalization) meta.push(`personalizacja: ${it.personalization}`);
+      const metaStr = meta.length ? ` (${meta.join(", ")})` : "";
+      return `${it.title} x${it.qty}${metaStr}`;
+    })
+    .join("\n");
+}
+
 function openCartPage() {
-  const page = document.getElementById("cart-page");
-  if (!page) return;
-
-  PANEL_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) el.hidden = true;
-  });
-
-  page.hidden = false;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  openStandalonePage("cart-page");
   history.replaceState(null, "", "#cart");
 }
 
 function closeCartPage() {
-  const page = document.getElementById("cart-page");
-  if (page) page.hidden = true;
-
-  const shop = document.getElementById("shop");
-  if (shop) shop.hidden = false;
+  leaveStandalonePage({ showSectionId: "shop" });
   history.replaceState(null, "", "#shop");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function buildOrderEmail(cart, customer) {
-  const lines = cart.map((it) => {
-    const meta = [];
-    if (it.type === "model") meta.push("Typ: model STL/3MF");
-    if (it.color) meta.push(`Kolor: ${it.color}`);
-    if (it.infill != null && it.infill !== "") meta.push(`Infill: ${it.infill}%`);
-    if (it.personalization) meta.push(`Personalizacja: ${it.personalization}`);
-    return `- ${it.title} (x${it.qty})\n  ${meta.join("\n  ")}`;
-  });
-
-  const body = [
-    `Imię i nazwisko: ${customer.name || "-"}`,
-    `E-mail: ${customer.email || "-"}`,
-    `Telefon: ${customer.phone || "-"}`,
-    "",
-    "Zamówienie preorder xinfill (najpierw opłata, potem realizacja):",
-    ...lines,
-    "",
-    `Wiadomość: ${customer.message || "-"}`,
-    "",
-    "Pakowanie: karton + folia jako wypełnienie.",
-  ].join("\n");
-
-  const subject = `Zamówienie preorder xinfill (${cart.reduce((s, it) => s + (it.qty || 0), 0)} szt.)`;
-  return `mailto:${encodeURIComponent(CONFIG.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function initCart() {
@@ -150,6 +123,7 @@ function initCart() {
   const toggle = document.getElementById("cart-toggle");
   const closeBtn = document.getElementById("cart-close");
   const submitBtn = document.getElementById("cart-submit");
+  const msgEl = document.getElementById("cart-message-status");
 
   if (!page || !toggle) return;
 
@@ -178,18 +152,73 @@ function initCart() {
     renderCart(cart);
   });
 
-  submitBtn?.addEventListener("click", () => {
+  submitBtn?.addEventListener("click", async () => {
     cart = loadCart();
     if (!cart.length) return;
 
-    const customer = {
-      name: document.getElementById("cart-name")?.value || "",
-      email: document.getElementById("cart-email")?.value || "",
-      phone: document.getElementById("cart-phone")?.value || "",
-      message: document.getElementById("cart-message")?.value || "",
-    };
+    const name = document.getElementById("cart-name")?.value?.trim() || "";
+    const email = document.getElementById("cart-email")?.value?.trim() || "";
+    const phone = document.getElementById("cart-phone")?.value?.trim() || "";
+    const message = document.getElementById("cart-message")?.value?.trim() || "";
 
-    window.location.href = buildOrderEmail(cart, customer);
+    if (!name || !email) {
+      if (msgEl) {
+        msgEl.textContent = "Podaj imię i nazwisko oraz e-mail.";
+        msgEl.className = "form-message error";
+        msgEl.style.display = "block";
+      }
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "...";
+    if (msgEl) msgEl.style.display = "none";
+
+    const formData = new FormData();
+    formData.set("_subject", `Zamówienie koszyk xinfill (${cart.reduce((s, it) => s + (it.qty || 0), 0)} szt.)`);
+    formData.set("_captcha", "false");
+    formData.set("_template", "table");
+    formData.set("_replyto", email);
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("phone", phone || "-");
+    formData.set("message", message || "-");
+    formData.set("order", formatCartText(cart));
+    formData.set("note", "Preorder — najpierw płatność, potem realizacja (~2 tygodnie).");
+
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CONFIG.email}`, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (!res.ok) throw new Error("submit failed");
+
+      if (msgEl) {
+        msgEl.textContent = "Zamówienie wysłane! Odezwiemy się z wyceną.";
+        msgEl.className = "form-message success";
+        msgEl.style.display = "block";
+      }
+
+      saveCart([]);
+      cart = [];
+      updateCount(cart);
+      renderCart(cart);
+      document.getElementById("cart-name").value = "";
+      document.getElementById("cart-email").value = "";
+      document.getElementById("cart-phone").value = "";
+      document.getElementById("cart-message").value = "";
+    } catch {
+      if (msgEl) {
+        msgEl.textContent = `Błąd wysyłki. Napisz na ${CONFIG.email}`;
+        msgEl.className = "form-message error";
+        msgEl.style.display = "block";
+      }
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Wyślij zamówienie";
   });
 }
 
@@ -201,4 +230,4 @@ function addToCart(item) {
   renderCart(cart);
 }
 
-export { initCart, addToCart };
+export { initCart, addToCart, showHomeChrome };

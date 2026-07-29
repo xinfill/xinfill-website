@@ -1918,8 +1918,27 @@ img {
 
 .product-page,
 .cart-page {
-  min-height: 70vh;
-  padding-top: 1.5rem;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0 4rem;
+  background: var(--black);
+}
+
+.cart-page .section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.cart-page-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  margin-top: 1.25rem;
+}
+
+.cart-page .cart-form {
+  background: var(--black-soft);
+  border: 1px solid var(--gray-dark);
+  border-radius: var(--radius);
+  padding: 1.25rem;
 }
 
 .product-page-layout {

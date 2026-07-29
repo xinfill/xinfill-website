@@ -1,3 +1,5 @@
+import { showHomeChrome, hideAllContent } from "./view-chrome.js";
+
 const PANEL_SECTIONS = ["shop", "models", "custom", "dostawa", "contact"];
 const EXTRA_PAGES = ["product-page", "cart-page"];
 
@@ -9,6 +11,7 @@ function hideExtras() {
 }
 
 function showSection(id, tab) {
+  showHomeChrome();
   hideExtras();
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
@@ -48,6 +51,7 @@ function initSpa() {
     if (el) el.hidden = true;
   });
   hideExtras();
+  showHomeChrome();
 
   document.addEventListener("click", (e) => {
     const link = e.target.closest("[data-section]");
@@ -58,11 +62,8 @@ function initSpa() {
     const tab = link.dataset.tab || null;
 
     if (section === "home") {
-      PANEL_SECTIONS.forEach((s) => {
-        const el = document.getElementById(s);
-        if (el) el.hidden = true;
-      });
-      hideExtras();
+      hideAllContent();
+      showHomeChrome();
       document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
       document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
       window.scrollTo({ top: 0, behavior: "smooth" });

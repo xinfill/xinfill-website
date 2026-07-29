@@ -1,4 +1,5 @@
 import { addToCart } from "./cart.js";
+import { openStandalonePage, leaveStandalonePage } from "./view-chrome.js";
 
 const PRODUCTS = {
   gadget: {
@@ -100,13 +101,6 @@ function extractProductKeyFromCard(card) {
   return { type, id };
 }
 
-function hidePanelSections() {
-  ["shop", "models", "custom", "dostawa", "contact", "cart-page"].forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) el.hidden = true;
-  });
-}
-
 function openProductPage(card) {
   const page = document.getElementById("product-page");
   if (!page) return;
@@ -128,7 +122,6 @@ function openProductPage(card) {
   const info = PRODUCTS[current.type]?.[current.id];
   document.getElementById("product-modal-long").textContent = info ? pickLang(info) : "";
 
-  // Copy visual from card
   const srcVisual = card.querySelector(".product-visual, .product-img");
   const destImg = document.getElementById("product-page-img");
   if (srcVisual && destImg) {
@@ -168,21 +161,14 @@ function openProductPage(card) {
   const addBtn = document.getElementById("product-add-to-cart");
   if (addBtn) addBtn.textContent = isModel ? "Kup model (STL)" : "Dodaj do koszyka";
 
-  hidePanelSections();
-  page.hidden = false;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  openStandalonePage("product-page");
   history.replaceState(null, "", `#product-${current.id}`);
 }
 
 function closeProductPage() {
-  const page = document.getElementById("product-page");
-  if (page) page.hidden = true;
+  leaveStandalonePage({ showSectionId: returnSection });
   current = null;
-
-  const back = document.getElementById(returnSection);
-  if (back) back.hidden = false;
   history.replaceState(null, "", `#${returnSection}`);
-  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function initProductModal() {
