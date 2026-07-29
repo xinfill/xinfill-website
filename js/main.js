@@ -36,7 +36,11 @@ function initContact() {
 
   document.querySelectorAll("[data-social]").forEach((el) => {
     const platform = el.dataset.social;
-    if (socialMap[platform]) el.href = socialMap[platform];
+    if (socialMap[platform]) {
+      el.href = socialMap[platform];
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+    }
   });
 
   document.querySelectorAll("[data-social-handle]").forEach((el) => {
