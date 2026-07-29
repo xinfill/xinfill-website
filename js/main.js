@@ -44,7 +44,12 @@ function initContact() {
   });
 
   document.querySelectorAll("[data-social-handle]").forEach((el) => {
-    el.textContent = social.handle;
+    const platform = el.closest("[data-social]")?.dataset.social;
+    if (platform === "telegram" && social.telegramHandle) {
+      el.textContent = social.telegramHandle;
+    } else {
+      el.textContent = social.handle;
+    }
   });
 }
 

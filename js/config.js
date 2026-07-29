@@ -19,8 +19,9 @@ export const CONFIG = {
     instagram: "https://instagram.com/xinfill",
     facebook: "https://www.facebook.com/profile.php?id=61592881340390",
     youtube: "https://youtube.com/@xinfill",
-    telegram: "https://t.me/xinfill",
+    telegram: "https://t.me/xinfilleu",
     handle: "@xinfill",
+    telegramHandle: "@xinfilleu",
   },
 
   ratesPer100g: {
