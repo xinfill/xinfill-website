@@ -17,7 +17,7 @@ export const CONFIG = {
 
   social: {
     instagram: "https://instagram.com/xinfill",
-    facebook: "https://facebook.com/xinfill",
+    facebook: "https://www.facebook.com/profile.php?id=61592881340390",
     youtube: "https://youtube.com/@xinfill",
     telegram: "https://t.me/xinfill",
     handle: "@xinfill",
