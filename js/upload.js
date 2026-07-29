@@ -90,6 +90,7 @@ function initUpload() {
 
     const formData = new FormData(form);
     formData.set("attachment", selectedFile);
+    formData.set("_replyto", form.querySelector('[name="email"]')?.value || "");
 
     const submitBtn = document.getElementById("submit-btn");
     submitBtn.disabled = true;
