@@ -208,7 +208,11 @@ function initProductModal() {
     const noInfill = isModel || NO_INFILL_IDS.includes(current.id);
 
     const colorEl = page.querySelector('input[name="product-color"]:checked');
-    const color = isModel ? "" : colorEl?.value || "";
+    let color = isModel ? "" : colorEl?.value || "";
+    if (!isModel && color === "Inny") {
+      const custom = document.getElementById("product-color-custom")?.value?.trim();
+      color = custom ? `Inny: ${custom}` : "Inny";
+    }
     const infillVal = noInfill ? null : Number(document.getElementById("product-infill").value || 20);
     const personalization = isModel
       ? ""
