@@ -122,6 +122,7 @@ function initCart() {
   const page = document.getElementById("cart-page");
   const toggle = document.getElementById("cart-toggle");
   const closeBtn = document.getElementById("cart-close");
+  const form = document.getElementById("cart-order-form");
   const submitBtn = document.getElementById("cart-submit");
   const msgEl = document.getElementById("cart-message-status");
 
@@ -152,7 +153,8 @@ function initCart() {
     renderCart(cart);
   });
 
-  submitBtn?.addEventListener("click", async () => {
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
     cart = loadCart();
     if (!cart.length) return;
 
@@ -196,7 +198,7 @@ function initCart() {
       if (!res.ok) throw new Error("submit failed");
 
       if (msgEl) {
-        msgEl.textContent = "Zamówienie wysłane! Odezwiemy się z wyceną.";
+        msgEl.textContent = "Zamówienie wysłane na xinfilleu@gmail.com! Odezwiemy się z wyceną (bez otwierania programu pocztowego).";
         msgEl.className = "form-message success";
         msgEl.style.display = "block";
       }
@@ -205,13 +207,10 @@ function initCart() {
       cart = [];
       updateCount(cart);
       renderCart(cart);
-      document.getElementById("cart-name").value = "";
-      document.getElementById("cart-email").value = "";
-      document.getElementById("cart-phone").value = "";
-      document.getElementById("cart-message").value = "";
+      form.reset();
     } catch {
       if (msgEl) {
-        msgEl.textContent = `Błąd wysyłki. Napisz na ${CONFIG.email}`;
+        msgEl.textContent = `Błąd wysyłki. Sprawdź czy FormSubmit jest aktywowany na ${CONFIG.email} (pierwszy mail z linkiem Activate).`;
         msgEl.className = "form-message error";
         msgEl.style.display = "block";
       }

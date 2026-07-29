@@ -538,45 +538,6 @@
     </div>
   </section>
 
-  <!-- Footer info panel -->
-  <section class="footer-info" id="footer-info">
-    <div class="container">
-      <div class="footer-info-grid">
-        <div class="footer-info-col">
-          <h4 data-i18n="contact.title">Kontakt</h4>
-          <a href="mailto:xinfilleu@gmail.com" class="footer-email" data-contact-email>xinfilleu@gmail.com</a>
-          <div class="footer-social">
-            <a href="#" data-social="instagram" target="_blank" rel="noopener" title="Instagram">📷</a>
-            <a href="#" data-social="facebook" target="_blank" rel="noopener" title="Facebook">📘</a>
-            <a href="#" data-social="youtube" target="_blank" rel="noopener" title="YouTube">▶️</a>
-            <a href="#" data-social="telegram" target="_blank" rel="noopener" title="Telegram">✈️</a>
-          </div>
-        </div>
-        <div class="footer-info-col">
-          <h4 data-i18n="delivery.title">Dostawa</h4>
-          <p>📦 InPost (Paczkomat / kurier)</p>
-          <p>🚚 DPD (Pickup / kurier)</p>
-          <small data-i18n="delivery.note_short">Wysyłamy w kartonie z zabezpieczeniem. Cena dostawy w wycenie.</small>
-        </div>
-        <div class="footer-info-col">
-          <h4>xinfill</h4>
-          <p data-i18n="footer.seller_short">Jakub · Polska</p>
-          <p class="footer-tagline" data-i18n="footer.tagline">Druk 3D FDM — PLA · PETG · TPU · ASA</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <nav class="footer-legal">
-        <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
-        <span>·</span>
-        <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
-      </nav>
-      <p>© 2026 xinfill. <span data-i18n="footer.rights">Wszelkie prawa zastrzeżone.</span></p>
-    </div>
-  </footer>
 
   <!-- Strona produktu -->
   <section class="section product-page" id="product-page" hidden>
@@ -668,31 +629,73 @@
           <div class="cart-empty" id="cart-empty">Koszyk jest pusty.</div>
         </div>
         <div class="cart-form" id="cart-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Imię i nazwisko</label>
-              <input type="text" id="cart-name" required>
+          <form id="cart-order-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Imię i nazwisko</label>
+                <input type="text" id="cart-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="cart-email" name="email" required>
+              </div>
             </div>
             <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" id="cart-email" required>
+              <label>Telefon (opcjonalnie)</label>
+              <input type="tel" id="cart-phone" name="phone">
             </div>
-          </div>
-          <div class="form-group">
-            <label>Telefon (opcjonalnie)</label>
-            <input type="tel" id="cart-phone">
-          </div>
-          <div class="form-group">
-            <label>Wiadomość do zamówienia</label>
-            <textarea id="cart-message" rows="3"></textarea>
-          </div>
-          <button class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
-          <div class="form-message" id="cart-message-status" style="display:none"></div>
-          <p class="cart-note">Po akceptacji wyceny i płatności zaczynamy preorder (realizacja ok. 2 tygodnie).</p>
+            <div class="form-group">
+              <label>Wiadomość do zamówienia</label>
+              <textarea id="cart-message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
+            <div class="form-message" id="cart-message-status" style="display:none"></div>
+            <p class="cart-note">Zamówienie trafia na e-mail (FormSubmit). Po akceptacji wyceny i płatności zaczynamy preorder (~2 tygodnie).</p>
+          </form>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Footer info panel -->
+  <section class="footer-info" id="footer-info">
+    <div class="container">
+      <div class="footer-info-grid">
+        <div class="footer-info-col">
+          <h4 data-i18n="contact.title">Kontakt</h4>
+          <a href="mailto:xinfilleu@gmail.com" class="footer-email" data-contact-email>xinfilleu@gmail.com</a>
+          <div class="footer-social">
+            <a href="#" data-social="instagram" target="_blank" rel="noopener" title="Instagram">📷</a>
+            <a href="#" data-social="facebook" target="_blank" rel="noopener" title="Facebook">📘</a>
+            <a href="#" data-social="youtube" target="_blank" rel="noopener" title="YouTube">▶️</a>
+            <a href="#" data-social="telegram" target="_blank" rel="noopener" title="Telegram">✈️</a>
+          </div>
+        </div>
+        <div class="footer-info-col">
+          <h4 data-i18n="delivery.title">Dostawa</h4>
+          <p>📦 InPost (Paczkomat / kurier)</p>
+          <p>🚚 DPD (Pickup / kurier)</p>
+          <small data-i18n="delivery.note_short">Wysyłamy w kartonie z zabezpieczeniem. Cena dostawy w wycenie.</small>
+        </div>
+        <div class="footer-info-col">
+          <h4>xinfill</h4>
+          <p data-i18n="footer.seller_short">Jakub · Polska</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Druk 3D FDM — PLA · PETG · TPU · ASA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-legal">
+        <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
+        <span>·</span>
+        <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
+      </nav>
+      <p>© 2026 xinfill. <span data-i18n="footer.rights">Wszelkie prawa zastrzeżone.</span></p>
+    </div>
+  </footer>
 
 
   <div class="cookie-banner" id="cookie-banner" hidden>
