@@ -1,6 +1,15 @@
 const PANEL_SECTIONS = ["shop", "models", "custom", "dostawa", "contact"];
+const EXTRA_PAGES = ["product-page", "cart-page"];
+
+function hideExtras() {
+  EXTRA_PAGES.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.hidden = true;
+  });
+}
 
 function showSection(id, tab) {
+  hideExtras();
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
     if (!el) return;
@@ -14,7 +23,6 @@ function showSection(id, tab) {
     }, 10);
   }
 
-  // Update active panel
   document.querySelectorAll(".nav-panel").forEach((p) => {
     const pSection = p.dataset.section;
     const pTab = p.dataset.tab;
@@ -22,12 +30,10 @@ function showSection(id, tab) {
     p.classList.toggle("active", isMatch);
   });
 
-  // Update active nav link
   document.querySelectorAll(".nav a[data-section]").forEach((a) => {
     a.classList.toggle("active", a.dataset.section === id);
   });
 
-  // Scroll to the visible section
   const target = document.getElementById(id);
   if (target) {
     setTimeout(() => {
@@ -37,11 +43,11 @@ function showSection(id, tab) {
 }
 
 function initSpa() {
-  // Hide all sections on load (Start = hero + slogan + 4 panels)
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
     if (el) el.hidden = true;
   });
+  hideExtras();
 
   document.addEventListener("click", (e) => {
     const link = e.target.closest("[data-section]");
@@ -56,6 +62,7 @@ function initSpa() {
         const el = document.getElementById(s);
         if (el) el.hidden = true;
       });
+      hideExtras();
       document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
       document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -66,11 +73,9 @@ function initSpa() {
     if (PANEL_SECTIONS.includes(section)) {
       showSection(section, tab);
       history.replaceState(null, "", `#${section}`);
-      return;
     }
   });
 
-  // Handle initial hash
   const hash = location.hash.replace("#", "");
   if (hash && PANEL_SECTIONS.includes(hash)) {
     showSection(hash);

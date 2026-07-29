@@ -1,13 +1,12 @@
 import { addToCart } from "./cart.js";
-import { currentLang } from "./i18n.js";
 
 const PRODUCTS = {
   gadget: {
     magnet: {
-      pl: "Kolorowe magnesy 3D na lodówkę. Zamawiasz zestaw lub pojedynczą sztukę. Przy wersjach personalizowanych dopisz treść w wiadomości.",
-      en: "Colorful 3D fridge magnets. Order a set or single piece. For personalized versions, write your text in the message.",
-      ru: "Цветные 3D магниты для холодильника. Закажите набор или одну штуку. Для персонализации укажите текст в сообщении.",
-      uk: "Кольорові 3D магніти для холодильника. Замовляйте набір або одну штуку. Для персоналізації напишіть текст у повідомленні.",
+      pl: "Kolorowe magnesy 3D na lodówkę. Zamawiasz zestaw lub pojedynczą sztukę. Wypełnienie jest standardowe — Ty wybierasz kolor (opcjonalnie personalizację).",
+      en: "Colorful 3D fridge magnets. Order a set or single piece. Infill is standard — you choose the color (personalization optional).",
+      ru: "Цветные 3D магниты для холодильника. Закажите набор или одну штуку. Заполнение стандартное — вы выбираете цвет.",
+      uk: "Кольорові 3D магніти для холодильника. Замовляйте набір або одну штуку. Заповнення стандартне — ви обираєте колір.",
     },
     headphone: {
       pl: "Stand na słuchawki — stabilna podstawka na biurku. Wygląda dobrze w każdym pokoju, pomaga utrzymać porządek.",
@@ -48,7 +47,7 @@ const PRODUCTS = {
     collar_nfc: {
       pl: "Przypinka z tagiem NFC: jak zwykła przypinka + dane kontaktowe w tagu. Wpisz dane w personalizacji.",
       en: "NFC collar tag: like a regular tag + contact data inside NFC. Enter the details.",
-      ru: "Бирка NFC: как обычная + контактные данные в NFC. Укажите данные в персонализации.",
+      ru: "Бирка NFC: как обычная + контактные данные в NFC. Укажите данные.",
       uk: "Підвіска NFC: як звичайна + контактні дані в NFC. Вкажіть дані.",
     },
     collar_airtag: {
@@ -68,17 +67,21 @@ const PRODUCTS = {
     magnet: { pl: "Model STL/3MF do samodzielnego druku na Twojej drukarce.", en: "STL/3MF model for printing on your printer.", ru: "STL/3MF модель для печати на вашем принтере.", uk: "STL/3MF модель для друку на вашому принтері." },
     headphone: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
     keychain: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    whistle: { pl: "Model STL/3MF — personalizację robisz pod siebie (imię w ustawieniach/projekcie).", en: "STL/3MF model — personalize it on your side (name in settings/design).", ru: "STL/3MF — персонализируйте у себя.", uk: "STL/3MF — персоналізуйте у себе." },
+    whistle: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF model — you personalize it yourself.", ru: "STL/3MF — персонализируйте у себя.", uk: "STL/3MF — персоналізуйте у себе." },
     coaster: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
     controller: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    collar: { pl: "Model STL/3MF — zrobisz przypinkę na obrożę pod swoje dane.", en: "STL/3MF — tag model personalized for your data.", ru: "STL/3MF — бирка под ваши данные.", uk: "STL/3MF — бірка під ваші дані." },
-    collar_nfc: { pl: "Model STL/3MF — personalizację i dane NFC przygotowujesz u siebie.", en: "STL/3MF — NFC setup and personalization on your side.", ru: "STL/3MF — NFC вы настраиваете у себя.", uk: "STL/3MF — NFC налаштовуєте у себе." },
+    collar: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF — personalize on your side.", ru: "STL/3MF — персонализация у вас.", uk: "STL/3MF — персоналізація у вас." },
+    collar_nfc: { pl: "Model STL/3MF — NFC i personalizację przygotowujesz u siebie.", en: "STL/3MF — NFC and personalization on your side.", ru: "STL/3MF — NFC вы настраиваете у себя.", uk: "STL/3MF — NFC налаштовуєте у себе." },
     collar_airtag: { pl: "Model STL/3MF — miejsce pod AirTag w gotowym wymiarze.", en: "STL/3MF — AirTag slot in ready dimensions.", ru: "STL/3MF — место под AirTag.", uk: "STL/3MF — слот під AirTag." },
-    food: { pl: "Model STL/3MF — personalizację robisz pod imię psa.", en: "STL/3MF — personalize for your dog’s name.", ru: "STL/3MF — персонализация под имя.", uk: "STL/3MF — персоналізація під ім’я." },
+    food: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF — personalize yourself.", ru: "STL/3MF — персонализация у вас.", uk: "STL/3MF — персоналізація у вас." },
   },
 };
 
+/** Gadgets sold with fixed standard infill (no client choice) */
+const NO_INFILL_IDS = ["magnet"];
+
 let current = null;
+let returnSection = "shop";
 
 function pickLang(obj) {
   const lang = (document.documentElement.lang || "pl").toLowerCase();
@@ -91,25 +94,27 @@ function extractProductKeyFromCard(card) {
   const h3 = card.querySelector(".product-info h3");
   const dataI18n = h3?.dataset?.i18n;
   if (!dataI18n) return null;
-  // "shop.magnet_title" => ("gadget", "magnet")
-  const [namespace, rest] = String(dataI18n).split(".");
+  const [, rest] = String(dataI18n).split(".");
   const id = rest?.replace("_title", "");
   const type = card.classList.contains("model-card") ? "model" : "gadget";
-  return { type, id, namespace };
+  return { type, id };
 }
 
-function setHidden(el, hidden) {
-  if (!el) return;
-  el.hidden = hidden;
+function hidePanelSections() {
+  ["shop", "models", "custom", "dostawa", "contact", "cart-page"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.hidden = true;
+  });
 }
 
-function openProductModal(card) {
-  const modal = document.getElementById("product-modal");
-  const overlay = document.getElementById("product-overlay");
-  if (!modal || !overlay) return;
+function openProductPage(card) {
+  const page = document.getElementById("product-page");
+  if (!page) return;
 
   const key = extractProductKeyFromCard(card);
   if (!key?.id) return;
+
+  returnSection = card.closest("#models") ? "models" : "shop";
 
   current = {
     ...key,
@@ -121,57 +126,68 @@ function openProductModal(card) {
   document.getElementById("product-modal-short").textContent = short;
 
   const info = PRODUCTS[current.type]?.[current.id];
-  const longText = info ? pickLang(info) : "";
-  document.getElementById("product-modal-long").textContent = longText;
+  document.getElementById("product-modal-long").textContent = info ? pickLang(info) : "";
 
-  // Reset options defaults
-  const colorRadio = modal.querySelector('input[name="product-color"][value="Czarny"]');
-  if (colorRadio) colorRadio.checked = true;
-  const infill = modal.querySelector("#product-infill");
-  const infillVal = modal.querySelector("#product-infill-val");
-  if (infillVal && infill) infillVal.textContent = `${infill.value}%`;
-  if (modal.querySelector("#product-infill-preview")) {
-    // let ui.js update preview via input event; just ensure a value is set
-    modal.querySelector("#product-infill-preview").style.setProperty("--infill-pct", infill?.value || 20);
+  // Copy visual from card
+  const srcVisual = card.querySelector(".product-visual, .product-img");
+  const destImg = document.getElementById("product-page-img");
+  if (srcVisual && destImg) {
+    destImg.className = srcVisual.className;
+    const icon = srcVisual.querySelector(".pv-icon")?.textContent || "🛒";
+    destImg.innerHTML = `<span class="pv-icon">${icon}</span>`;
   }
 
-  const personalization = document.getElementById("product-personalization");
+  const colorRadio = page.querySelector('input[name="product-color"][value="Czarny"]');
+  if (colorRadio) colorRadio.checked = true;
+
+  const qty = document.getElementById("product-qty");
+  if (qty) qty.value = "1";
+
   const pers = document.getElementById("product-personalization");
   if (pers) pers.value = "";
 
-  // For some products, suggest personalization
-  const personalizationInput = document.getElementById("product-personalization");
-  if (personalizationInput) {
+  const isModel = current.type === "model";
+  const noInfill = isModel || NO_INFILL_IDS.includes(current.id);
+
+  page.querySelectorAll(".product-print-options").forEach((el) => {
+    el.hidden = isModel;
+  });
+  const infillWrap = document.getElementById("product-infill-wrap");
+  if (infillWrap) infillWrap.hidden = noInfill;
+
+  const persWrap = document.getElementById("product-personalization-wrap");
+  if (persWrap) persWrap.hidden = isModel;
+
+  if (pers && !isModel) {
     const required = ["whistle", "collar", "collar_nfc", "collar_airtag", "food"].includes(current.id);
-    personalizationInput.placeholder = required
-      ? (document.querySelector("[data-i18n-placeholder='upload.personalization_placeholder']")?.placeholder || "Wpisz dane do personalizacji")
-      : "Opcjonalnie: np. imię, numer telefonu, napis";
+    pers.placeholder = required
+      ? "Wpisz dane do personalizacji"
+      : "Opcjonalnie: np. imię, napis";
   }
 
-  // Hide print-specific options for model (STL) purchases
-  const isModel = current.type === "model";
-  modal.querySelectorAll(".product-print-options").forEach((el) => (el.hidden = isModel));
   const addBtn = document.getElementById("product-add-to-cart");
   if (addBtn) addBtn.textContent = isModel ? "Kup model (STL)" : "Dodaj do koszyka";
 
-  setHidden(overlay, false);
-  setHidden(modal, false);
-  document.body.style.overflow = "hidden";
+  hidePanelSections();
+  page.hidden = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  history.replaceState(null, "", `#product-${current.id}`);
 }
 
-function closeProductModal() {
-  const modal = document.getElementById("product-modal");
-  const overlay = document.getElementById("product-overlay");
-  setHidden(overlay, true);
-  setHidden(modal, true);
-  document.body.style.overflow = "";
+function closeProductPage() {
+  const page = document.getElementById("product-page");
+  if (page) page.hidden = true;
   current = null;
+
+  const back = document.getElementById(returnSection);
+  if (back) back.hidden = false;
+  history.replaceState(null, "", `#${returnSection}`);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function initProductModal() {
-  const modal = document.getElementById("product-modal");
-  const overlay = document.getElementById("product-overlay");
-  if (!modal || !overlay) return;
+  const page = document.getElementById("product-page");
+  if (!page) return;
 
   const closeBtn = document.getElementById("product-close");
   const addBtn = document.getElementById("product-add-to-cart");
@@ -180,12 +196,7 @@ function initProductModal() {
   const qtyPlus = document.getElementById("product-qty-plus");
   const infill = document.getElementById("product-infill");
 
-  overlay.addEventListener("click", closeProductModal);
-  closeBtn?.addEventListener("click", closeProductModal);
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeProductModal();
-  });
+  closeBtn?.addEventListener("click", closeProductPage);
 
   qtyMinus?.addEventListener("click", () => {
     const v = Number(qtyInput.value || 1);
@@ -196,10 +207,10 @@ function initProductModal() {
     qtyInput.value = String(Math.min(50, v + 1));
   });
 
-  // Keep infill label synced (even if ui.js is slow)
   infill?.addEventListener("input", () => {
     const v = infill.value;
-    document.getElementById("product-infill-val").textContent = `${v}%`;
+    const label = document.getElementById("product-infill-val");
+    if (label) label.textContent = `${v}%`;
     document.getElementById("product-infill-preview")?.style.setProperty("--infill-pct", v);
   });
 
@@ -207,10 +218,15 @@ function initProductModal() {
     if (!current) return;
 
     const qty = Number(document.getElementById("product-qty").value || 1);
-    const colorEl = modal.querySelector('input[name="product-color"]:checked');
-    const color = colorEl?.value || "";
-    const infillVal = Number(document.getElementById("product-infill").value || 20);
-    const personalization = document.getElementById("product-personalization")?.value || "";
+    const isModel = current.type === "model";
+    const noInfill = isModel || NO_INFILL_IDS.includes(current.id);
+
+    const colorEl = page.querySelector('input[name="product-color"]:checked');
+    const color = isModel ? "" : colorEl?.value || "";
+    const infillVal = noInfill ? null : Number(document.getElementById("product-infill").value || 20);
+    const personalization = isModel
+      ? ""
+      : document.getElementById("product-personalization")?.value || "";
 
     addToCart({
       type: current.type,
@@ -222,23 +238,20 @@ function initProductModal() {
       personalization,
     });
 
-    closeProductModal();
-
-    // Open cart after adding
+    closeProductPage();
     document.getElementById("cart-toggle")?.click();
   });
 
   document.addEventListener("click", (e) => {
     const card = e.target.closest(".product-card");
     if (!card) return;
+    if (e.target.closest("#product-page")) return;
 
-    // Click on the main "Zamów" link should open modal instead of mailto.
     const buyLink = e.target.closest("a.btn-buy-model");
     if (buyLink) e.preventDefault();
 
-    openProductModal(card);
+    openProductPage(card);
   });
 }
 
 export { initProductModal };
-

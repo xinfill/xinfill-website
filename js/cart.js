@@ -1,6 +1,7 @@
 import { CONFIG } from "./config.js";
 
 const STORAGE_KEY = "xinfill-cart";
+const PANEL_IDS = ["shop", "models", "custom", "dostawa", "contact", "product-page"];
 
 function loadCart() {
   try {
@@ -17,12 +18,11 @@ function saveCart(cart) {
 }
 
 function normalizeItemKey(item) {
-  // Same product + same options => merge quantity.
   return [
     item.type,
     item.id,
     item.color || "",
-    item.infill || 0,
+    item.infill ?? "",
     item.personalization || "",
   ].join("|");
 }
@@ -58,8 +58,9 @@ function renderCart(cart) {
     .map((it, idx) => {
       const lines = [];
       if (it.color) lines.push(`Kolor: ${it.color}`);
-      if (it.infill) lines.push(`Infill: ${it.infill}%`);
+      if (it.infill != null && it.infill !== "") lines.push(`Infill: ${it.infill}%`);
       if (it.personalization) lines.push(`Personalizacja: ${it.personalization}`);
+      if (it.type === "model") lines.push("Typ: model STL/3MF");
 
       return `
         <div class="cart-item" data-cart-index="${idx}">
@@ -93,29 +94,36 @@ function updateCount(cart) {
   countEl.textContent = String(total);
 }
 
-function openDrawer() {
-  const overlay = document.getElementById("cart-overlay");
-  const drawer = document.getElementById("cart-drawer");
-  if (!overlay || !drawer) return;
-  overlay.hidden = false;
-  drawer.hidden = false;
-  document.body.style.overflow = "hidden";
+function openCartPage() {
+  const page = document.getElementById("cart-page");
+  if (!page) return;
+
+  PANEL_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.hidden = true;
+  });
+
+  page.hidden = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  history.replaceState(null, "", "#cart");
 }
 
-function closeDrawer() {
-  const overlay = document.getElementById("cart-overlay");
-  const drawer = document.getElementById("cart-drawer");
-  if (!overlay || !drawer) return;
-  overlay.hidden = true;
-  drawer.hidden = true;
-  document.body.style.overflow = "";
+function closeCartPage() {
+  const page = document.getElementById("cart-page");
+  if (page) page.hidden = true;
+
+  const shop = document.getElementById("shop");
+  if (shop) shop.hidden = false;
+  history.replaceState(null, "", "#shop");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function buildOrderEmail(cart, customer) {
   const lines = cart.map((it) => {
     const meta = [];
+    if (it.type === "model") meta.push("Typ: model STL/3MF");
     if (it.color) meta.push(`Kolor: ${it.color}`);
-    if (it.infill) meta.push(`Infill: ${it.infill}%`);
+    if (it.infill != null && it.infill !== "") meta.push(`Infill: ${it.infill}%`);
     if (it.personalization) meta.push(`Personalizacja: ${it.personalization}`);
     return `- ${it.title} (x${it.qty})\n  ${meta.join("\n  ")}`;
   });
@@ -134,23 +142,16 @@ function buildOrderEmail(cart, customer) {
   ].join("\n");
 
   const subject = `Zamówienie preorder xinfill (${cart.reduce((s, it) => s + (it.qty || 0), 0)} szt.)`;
-  const to = CONFIG.email;
-
-  const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-    body
-  )}`;
-
-  return url;
+  return `mailto:${encodeURIComponent(CONFIG.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function initCart() {
-  const overlay = document.getElementById("cart-overlay");
-  const drawer = document.getElementById("cart-drawer");
+  const page = document.getElementById("cart-page");
   const toggle = document.getElementById("cart-toggle");
   const closeBtn = document.getElementById("cart-close");
   const submitBtn = document.getElementById("cart-submit");
 
-  if (!overlay || !drawer || !toggle) return;
+  if (!page || !toggle) return;
 
   let cart = loadCart();
   updateCount(cart);
@@ -160,11 +161,10 @@ function initCart() {
     cart = loadCart();
     updateCount(cart);
     renderCart(cart);
-    openDrawer();
+    openCartPage();
   });
 
-  overlay.addEventListener("click", closeDrawer);
-  closeBtn?.addEventListener("click", closeDrawer);
+  closeBtn?.addEventListener("click", closeCartPage);
 
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".cart-remove");
@@ -189,8 +189,7 @@ function initCart() {
       message: document.getElementById("cart-message")?.value || "",
     };
 
-    const url = buildOrderEmail(cart, customer);
-    window.location.href = url;
+    window.location.href = buildOrderEmail(cart, customer);
   });
 }
 
@@ -198,10 +197,8 @@ function addToCart(item) {
   let cart = loadCart();
   cart = upsertItem(cart, item);
   saveCart(cart);
-
   updateCount(cart);
   renderCart(cart);
 }
 
 export { initCart, addToCart };
-

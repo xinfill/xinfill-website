@@ -578,110 +578,120 @@
     </div>
   </footer>
 
-  <!-- Koszyk (drawer) -->
-  <div class="overlay" id="cart-overlay" hidden></div>
-  <aside class="cart-drawer" id="cart-drawer" hidden>
-    <div class="cart-drawer-header">
-      <div class="cart-breadcrumb">xinfill / Koszyk</div>
-      <button class="modal-close" id="cart-close" aria-label="Zamknij">×</button>
+  <!-- Strona produktu -->
+  <section class="section product-page" id="product-page" hidden>
+    <div class="container">
+      <button type="button" class="page-back" id="product-close">← Wróć</button>
+      <div class="product-page-layout">
+        <div class="product-page-visual" id="product-page-visual">
+          <div class="product-img product-visual" id="product-page-img"><span class="pv-icon" id="product-page-icon">🛒</span></div>
+        </div>
+        <div class="product-page-content">
+          <div class="product-breadcrumb">xinfill / Produkt</div>
+          <h1 id="product-modal-title"></h1>
+          <p id="product-modal-short" class="product-short"></p>
+          <div id="product-modal-long" class="product-long"></div>
+
+          <div class="product-print-options">
+            <div class="form-group product-color-options">
+              <label data-i18n="colors.label">Kolor wydruku</label>
+              <div class="color-picker">
+                <label class="color-swatch">
+                  <input type="radio" name="product-color" value="Czarny" checked>
+                  <span class="swatch sw-black"></span>
+                  <span data-i18n="colors.black">Czarny</span>
+                </label>
+                <label class="color-swatch">
+                  <input type="radio" name="product-color" value="Biały">
+                  <span class="swatch sw-white"></span>
+                  <span data-i18n="colors.white">Biały</span>
+                </label>
+                <label class="color-swatch">
+                  <input type="radio" name="product-color" value="Fioletowy">
+                  <span class="swatch sw-purple"></span>
+                  <span data-i18n="colors.purple">Fioletowy</span>
+                </label>
+                <label class="color-swatch">
+                  <input type="radio" name="product-color" value="Inny">
+                  <span class="swatch sw-custom"></span>
+                  <span data-i18n="colors.custom">Inny kolor</span>
+                </label>
+              </div>
+              <div class="color-custom-wrap" hidden>
+                <input type="text" name="product-color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
+              </div>
+              <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — potwierdzimy w wiadomości.</small>
+            </div>
+
+            <div class="form-group infill-group" id="product-infill-wrap">
+              <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="product-infill-val">20%</strong></label>
+              <input type="range" id="product-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="product-infill-val" data-infill-preview="product-infill-preview">
+              <div class="infill-preview-wrap">
+                <div class="infill-preview" id="product-infill-preview"></div>
+              </div>
+              <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
+            </div>
+          </div>
+
+          <div class="form-group" id="product-personalization-wrap">
+            <label data-i18n="upload.personalization">Personalizacja (imię zwierzaka, napis itd.)</label>
+            <input type="text" id="product-personalization" data-i18n-placeholder="upload.personalization_placeholder" placeholder="Np. imię psa na gwizdku lub przypince">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ilość</label>
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" id="product-qty-minus">−</button>
+                <input type="number" id="product-qty" min="1" max="50" value="1">
+                <button type="button" class="qty-btn" id="product-qty-plus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="product-add-to-cart" style="width:100%">Dodaj do koszyka</button>
+        </div>
+      </div>
     </div>
-    <div class="cart-items" id="cart-items"></div>
-    <div class="cart-empty" id="cart-empty">Koszyk jest pusty.</div>
+  </section>
 
-    <div class="cart-form" id="cart-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Imię i nazwisko</label>
-          <input type="text" id="cart-name" required>
+  <!-- Strona koszyka -->
+  <section class="section cart-page" id="cart-page" hidden>
+    <div class="container cart-page-inner">
+      <button type="button" class="page-back" id="cart-close">← Wróć</button>
+      <div class="cart-drawer-header">
+        <h1 class="section-title" style="text-align:left;margin:0">Koszyk</h1>
+      </div>
+      <div class="cart-page-grid">
+        <div>
+          <div class="cart-items" id="cart-items"></div>
+          <div class="cart-empty" id="cart-empty">Koszyk jest pusty.</div>
         </div>
-        <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" id="cart-email" required>
+        <div class="cart-form" id="cart-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Imię i nazwisko</label>
+              <input type="text" id="cart-name" required>
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" id="cart-email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Telefon (opcjonalnie)</label>
+            <input type="tel" id="cart-phone">
+          </div>
+          <div class="form-group">
+            <label>Wiadomość do zamówienia</label>
+            <textarea id="cart-message" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
+          <p class="cart-note">Po akceptacji wyceny i płatności zaczynamy preorder (realizacja ok. 2 tygodnie).</p>
         </div>
       </div>
-      <div class="form-group">
-        <label>Telefon (opcjonalnie)</label>
-        <input type="tel" id="cart-phone">
-      </div>
-      <div class="form-group">
-        <label>Wiadomość do zamówienia</label>
-        <textarea id="cart-message" rows="3"></textarea>
-      </div>
-      <button class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
-      <p class="cart-note">Po akceptacji wyceny i płatności zaczynamy preorder (realizacja ok. 2 tygodnie).</p>
     </div>
-  </aside>
-
-  <!-- Szczegóły produktu -->
-  <div class="overlay" id="product-overlay" hidden></div>
-  <div class="modal product-modal" id="product-modal" hidden>
-    <div class="product-modal-body">
-      <button class="modal-close" id="product-close" aria-label="Zamknij">×</button>
-      <div class="product-breadcrumb">xinfill / Produkt</div>
-      <h2 id="product-modal-title"></h2>
-      <p id="product-modal-short" class="product-short"></p>
-      <div id="product-modal-long" class="product-long"></div>
-
-      <div class="product-print-options">
-        <div class="form-group">
-          <label data-i18n="colors.label">Kolor wydruku</label>
-          <div class="color-picker">
-            <label class="color-swatch">
-              <input type="radio" name="product-color" value="Czarny" checked>
-              <span class="swatch sw-black"></span>
-              <span data-i18n="colors.black">Czarny</span>
-            </label>
-            <label class="color-swatch">
-              <input type="radio" name="product-color" value="Biały">
-              <span class="swatch sw-white"></span>
-              <span data-i18n="colors.white">Biały</span>
-            </label>
-            <label class="color-swatch">
-              <input type="radio" name="product-color" value="Fioletowy">
-              <span class="swatch sw-purple"></span>
-              <span data-i18n="colors.purple">Fioletowy</span>
-            </label>
-            <label class="color-swatch">
-              <input type="radio" name="product-color" value="Inny">
-              <span class="swatch sw-custom"></span>
-              <span data-i18n="colors.custom">Inny kolor</span>
-            </label>
-          </div>
-          <div class="color-custom-wrap" hidden>
-            <input type="text" name="product-color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
-          </div>
-          <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — potwierdzimy w wiadomości.</small>
-        </div>
-
-        <div class="form-group infill-group">
-          <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="product-infill-val">20%</strong></label>
-          <input type="range" id="product-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="product-infill-val" data-infill-preview="product-infill-preview">
-          <div class="infill-preview-wrap">
-            <div class="infill-preview" id="product-infill-preview"></div>
-          </div>
-          <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label data-i18n="upload.personalization">Personalizacja (imię zwierzaka, napis itd.)</label>
-        <input type="text" id="product-personalization" data-i18n-placeholder="upload.personalization_placeholder" placeholder="Np. imię psa na gwizdku lub przypince">
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Ilość</label>
-          <div class="qty-stepper">
-            <button type="button" class="qty-btn" id="product-qty-minus">−</button>
-            <input type="number" id="product-qty" min="1" max="50" value="1">
-            <button type="button" class="qty-btn" id="product-qty-plus">+</button>
-          </div>
-        </div>
-      </div>
-
-      <button class="btn btn-primary" id="product-add-to-cart" style="width:100%">Dodaj do koszyka</button>
-    </div>
-  </div>
+  </section>
 
 
   <div class="cookie-banner" id="cookie-banner" hidden>
