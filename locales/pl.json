@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Start",
+    "shop": "Gadżety",
+    "models": "Modele",
+    "upload": "Własny plik",
+    "calculator": "Cennik",
+    "delivery": "Dostawa",
+    "contact": "Kontakt"
+  },
+  "panels": {
+    "gadgets": "Nasze gadżety",
+    "gadgets_desc": "Gotowe produkty — zamów i odbierz z dostawą",
+    "upload": "Własny plik",
+    "upload_desc": "Masz STL lub 3MF? Wydrukujemy",
+    "pricing": "Cennik",
+    "pricing_desc": "Oblicz orientacyjną cenę wydruku",
+    "models": "Modele do druku",
+    "models_desc": "Kup plik STL i drukuj u siebie"
+  },
+  "info": {
+    "time": "⏱ Realizacja: ok. 2 tygodnie",
+    "max_size": "📐 Max wymiary: 260×260×260 mm"
+  },
+  "hero": {
+    "badge": "Gadżety 3D do domu",
+    "slogan": "Wydrukuj swój pomysł",
+    "subtitle": "Twój pomysł. Nasz druk. Prosto do domu.",
+    "description": "Gadżety, wydruki na zamówienie i pliki STL. Wysyłka na terenie całej Polski.",
+    "cta_shop": "Kup gadżety"
+  },
+  "preorder": {
+    "title": "Preorder — najpierw płatność, potem druk",
+    "desc": "Po akceptacji wyceny opłacasz zamówienie, a dopiero wtedy rozpoczynamy realizację (ok. 2 tygodnie). Bez płatności druk się nie zaczyna."
+  },
+  "actions": {
+    "shop_title": "Nasze gadżety",
+    "shop_desc": "Gotowe produkty — zamów i odbierz z dostawą",
+    "upload_title": "Własny plik",
+    "upload_desc": "Masz STL lub 3MF? Wydrukujemy",
+    "calc_title": "Cennik",
+    "calc_desc": "Oblicz orientacyjną cenę wydruku",
+    "models_title": "Modele do druku",
+    "models_desc": "Kup plik STL i drukuj u siebie"
+  },
+  "materials": {
+    "pla": "dobra jakość, łatwy w druku",
+    "petg": "wytrzymały",
+    "tpu": "elastyczny",
+    "asa": "odporny na UV",
+    "asa_premium": "wygładzony i błyszczący",
+    "brands": "Używamy sprawdzonych materiałów dobrej jakości."
+  },
+  "shop": {
+    "title": "Nasze gadżety",
+    "subtitle": "Wybierz produkt i zamów — wysyłka na terenie Polski",
+    "coming": "Wkrótce",
+    "discount": "Nowość",
+    "price_from": "od",
+    "buy": "Zamów",
+    "magnet_title": "Magnesy na lodówkę",
+    "magnet_desc": "Kolorowe magnesy 3D — zestaw lub pojedyncze sztuki.",
+    "headphone_title": "Stand na słuchawki",
+    "headphone_desc": "Stabilna podstawka na słuchawki gamingowe lub studio.",
+    "keychain_title": "Brelok z otwieraczem",
+    "keychain_desc": "Praktyczny brelok z otwieraczem do butelek.",
+    "whistle_title": "Gwizdek z imieniem zwierzaka",
+    "whistle_desc": "Personalizowany gwizdek — wpisz imię pupila w zamówieniu.",
+    "coaster_title": "Podstawka na kubek",
+    "coaster_desc": "Podkładka pod kubek — chroni blat, wygląda stylowo.",
+    "controller_title": "Stand na pada",
+    "controller_desc": "Uchwyt na kontroler do konsoli lub PC.",
+    "collar_title": "Przypinka na obrożę",
+    "collar_desc": "Imię psa i numer telefonu właściciela.",
+    "collar_nfc_title": "Przypinka z tagiem NFC",
+    "collar_nfc_desc": "Jak podstawowa + NFC z danymi kontaktowymi.",
+    "collar_airtag_title": "Przypinka na AirTag",
+    "collar_airtag_desc": "Miejsce na Apple AirTag w obroży.",
+    "food_title": "Pojemnik na karmę z clickerem",
+    "food_desc": "Pojemnik na jedzenie + clicker treningowy z imieniem psa."
+  },
+  "models": {
+    "title": "Modele do własnego druku",
+    "subtitle": "Kup plik STL/3MF i wydrukuj na swojej drukarce 3D",
+    "price_from": "od",
+    "buy": "Kup model",
+    "magnet_title": "Magnesy na lodówkę — model",
+    "headphone_title": "Stand na słuchawki — model",
+    "keychain_title": "Brelok z otwieraczem — model",
+    "whistle_title": "Gwizdek z imieniem — model",
+    "coaster_title": "Podstawka na kubek — model",
+    "controller_title": "Stand na pada — model",
+    "collar_title": "Przypinka na obrożę — model",
+    "collar_nfc_title": "Przypinka NFC — model",
+    "collar_airtag_title": "Przypinka AirTag — model",
+    "food_title": "Pojemnik + clicker — model",
+    "file_desc": "Plik gotowy do druku. Po opłaceniu wysyłamy link do pobrania."
+  },
+  "custom_design": {
+    "title": "Nie masz pliku 3D? Zaprojektujemy model",
+    "desc": "Jeśli potrzebujesz unikalnego gadżetu, ale nie masz pliku STL/3MF — to osobna, płatna usługa projektowania 3D. Najpierw ustalamy zakres i wycenę, po opłaceniu projektu przygotowujemy model. Druk to kolejny krok (osobna wycena).",
+    "note": "Im bardziej złożony pomysł, tym więcej czasu i kosztów — zawsze potwierdzamy cenę przed startem."
+  },
+  "colors": {
+    "label": "Kolor wydruku",
+    "black": "Czarny",
+    "white": "Biały",
+    "purple": "Fioletowy",
+    "custom": "Inny kolor",
+    "custom_placeholder": "Opisz kolor (np. czerwony mat) — potwierdzimy dostępność",
+    "custom_note": "Inne kolory na zamówienie — napisz w uwagach, odezwiemy się z potwierdzeniem."
+  },
+  "infill": {
+    "label": "Wypełnienie (infill)",
+    "hint": "Wyższe wypełnienie = mocniejszy wydruk, więcej materiału i wyższa waga."
+  },
+  "calculator": {
+    "title": "Cennik",
+    "subtitle": "Orientacyjna wycena — wiążąca po analizie pliku",
+    "material": "Materiał",
+    "weight": "Waga wydruku (gramy)",
+    "quantity": "Ilość sztuk",
+    "calculate": "Oblicz cenę",
+    "result": "Szacunkowa cena",
+    "per_piece": "za sztukę",
+    "note": "Orientacyjna wycena. Dokładną cenę potwierdzimy po analizie pliku.",
+    "shipping": "Wysyłka na terenie Polski — wycena osobno",
+    "tab_upload": "Wyślij plik",
+    "tab_calc": "Oblicz cenę"
+  },
+  "upload": {
+    "title": "Wyślij własny plik",
+    "subtitle": "Masz STL lub 3MF? Wyślij plik — wycenimy i po opłaceniu zaczniemy druk.",
+    "drop": "Przeciągnij plik tutaj lub kliknij, aby wybrać",
+    "formats": "Dozwolone formaty: .stl, .3mf (max 50 MB)",
+    "name": "Imię i nazwisko",
+    "email": "E-mail",
+    "phone": "Telefon (opcjonalnie)",
+    "material_select": "Preferowany materiał",
+    "personalization": "Personalizacja (imię zwierzaka, napis itd.)",
+    "personalization_placeholder": "Np. imię psa na gwizdku lub przypince",
+    "notes": "Uwagi do zamówienia",
+    "submit": "Wyślij zapytanie",
+    "success": "Dziękujemy! Odezwiemy się z wyceną w ciągu 24–48 h.",
+    "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz na e-mail.",
+    "remove": "Usuń",
+    "consent": "Akceptuję <a href=\"regulamin.html\" target=\"_blank\">Regulamin</a> i <a href=\"polityka-prywatnosci.html\" target=\"_blank\">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.",
+    "consent_error": "Zaakceptuj Regulamin i Politykę prywatności przed wysłaniem.",
+    "how_title": "Jak działa formularz?",
+    "how_desc": "Po wysłaniu formularza wiadomość trafia na nasz e-mail (xinfilleu@gmail.com). Odpowiadamy z wyceną — po Twojej akceptacji i płatności zaczynamy druk."
+  },
+  "delivery": {
+    "title": "Dostawa",
+    "subtitle": "Wysyłamy na terenie całej Polski — InPost i DPD",
+    "inpost_title": "Paczkomat InPost",
+    "inpost_desc": "Najczęstsza opcja dla gadżetów i mniejszych wydruków.",
+    "size_a": "Gabaryt A",
+    "size_b": "Gabaryt B",
+    "size_c": "Gabaryt C",
+    "dpd_title": "DPD Pickup / kurier",
+    "dpd_desc": "Punkt odbioru lub dostawa pod wskazany adres.",
+    "dpd_pickup": "DPD Pickup (do 2 kg)",
+    "dpd_courier": "Kurier DPD (do 5 kg)",
+    "packaging_title": "Pakowanie",
+    "packaging_desc": "Każda przesyłka pakowana jest w solidny karton, a wnętrze zabezpieczamy folią jako wypełnienie — żeby produkt dotarł bezpiecznie.",
+    "note": "Ceny orientacyjne wg cenników InPost i DPD dla osób prywatnych (2026). Dokładny koszt dostawy podajemy w wycenie zamówienia.",
+    "note_short": "Wysyłamy w kartonie z zabezpieczeniem. Cena dostawy w wycenie."
+  },
+  "about": {
+    "title": "O mnie",
+    "name": "Jakub",
+    "placeholder": "Druk 3D FDM — własne gadżety i wydruki na zamówienie. Wysyłka na terenie całej Polski.",
+    "location": "Polska — wysyłka na terenie całego kraju"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "email": "E-mail",
+    "social": "Social media",
+    "address_note": "Adres do korespondencji i reklamacji podawany przy potwierdzeniu zamówienia.",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "youtube": "YouTube",
+    "telegram": "Telegram"
+  },
+  "cookies": {
+    "text": "Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
+    "accept": "Rozumiem"
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "tagline": "Druk 3D FDM — PLA · PETG · TPU · ASA",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności",
+    "seller": "Jakub · xinfill · Polska",
+    "seller_short": "Jakub · Polska"
+  }
+}

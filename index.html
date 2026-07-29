@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="xinfill — druk 3D FDM na zamówienie. PLA, PETG, TPU, ASA. Wysyłka na terenie Polski.">
+  <title>xinfill — Druk 3D na zamówienie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" data-section="shop">xinfill</a>
+      <nav class="nav" id="nav">
+        <a href="#home" data-i18n="nav.home" data-section="shop">Start</a>
+        <a href="#shop" data-i18n="nav.shop" data-section="shop">Gadżety</a>
+        <a href="#models" data-i18n="nav.models" data-section="models">Modele</a>
+        <a href="#custom" data-i18n="nav.upload" data-section="custom" data-tab="upload">Własny plik</a>
+        <a href="#custom" data-i18n="nav.calculator" data-section="custom" data-tab="calc">Cennik</a>
+        <a href="#dostawa" data-i18n="nav.delivery" data-scroll-to="footer-info">Dostawa</a>
+        <a href="#contact" data-i18n="nav.contact" data-scroll-to="footer-info">Kontakt</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="uk">UK</button>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="cart-toggle" id="cart-toggle" aria-label="Koszyk">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Animacja logo xinfill -->
+  <div class="print-strip" id="home">
+    <div class="print-strip-bar"></div>
+    <div class="print-scene">
+      <div class="nozzle-head"></div>
+      <div class="filament-behind">
+        <div class="filament-line"><div class="nozzle-dot-sm"></div></div>
+      </div>
+      <div class="logo-canvas">
+      <svg viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f8f8fc"/>
+            <stop offset="50%" style="stop-color:#e0e0ea"/>
+            <stop offset="100%" style="stop-color:#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <text class="logo-draw-text" x="110" y="42" text-anchor="middle">xinfill</text>
+        <text class="logo-fill-text" x="110" y="42" text-anchor="middle">xinfill</text>
+      </svg>
+    </div>
+    </div>
+  </div>
+
+  <!-- Slogan + Panele nawigacyjne -->
+  <section class="nav-panels" id="nav-panels">
+    <div class="container">
+      <div class="hero-intro">
+        <h1 class="hero-slogan" data-i18n="hero.slogan">Wydrukuj swój pomysł</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Twój pomysł. Nasz druk. Prosto do domu.</p>
+      </div>
+      <div class="panels-grid">
+        <button class="nav-panel active" data-section="shop">
+          <span class="nav-panel-icon">🛍️</span>
+          <strong data-i18n="panels.gadgets">Nasze gadżety</strong>
+          <small data-i18n="panels.gadgets_desc">Gotowe produkty — zamów i odbierz z dostawą</small>
+        </button>
+        <button class="nav-panel" data-section="custom" data-tab="upload">
+          <span class="nav-panel-icon">📁</span>
+          <strong data-i18n="panels.upload">Własny plik</strong>
+          <small data-i18n="panels.upload_desc">Masz STL lub 3MF? Wydrukujemy</small>
+        </button>
+        <button class="nav-panel" data-section="custom" data-tab="calc">
+          <span class="nav-panel-icon">💰</span>
+          <strong data-i18n="panels.pricing">Cennik</strong>
+          <small data-i18n="panels.pricing_desc">Oblicz orientacyjną cenę wydruku</small>
+        </button>
+        <button class="nav-panel" data-section="models">
+          <span class="nav-panel-icon">📐</span>
+          <strong data-i18n="panels.models">Modele do druku</strong>
+          <small data-i18n="panels.models_desc">Kup plik STL i wydrukuj sam</small>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section class="section section-shop" id="shop">
+    <div class="container fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="shop.title">Nasze gadżety</h2>
+        <p class="section-subtitle" data-i18n="shop.subtitle">Kup gotowy produkt — wysyłamy na terenie Polski</p>
+      </div>
+      <div class="preorder-banner">
+        <strong data-i18n="preorder.title">Preorder — najpierw płatność, potem druk</strong>
+        <p data-i18n="preorder.desc">Po akceptacji wyceny opłacasz zamówienie, a dopiero wtedy rozpoczynamy realizację (ok. 2 tygodnie).</p>
+      </div>
+      <div class="info-chips">
+        <span class="info-chip" data-i18n="info.time">⏱ Realizacja: ok. 2 tygodnie</span>
+        <span class="info-chip" data-i18n="info.max_size">📐 Max wymiary: 260×260×260 mm</span>
+      </div>
+      <div class="products-grid" id="products-grid">
+        <div class="product-card">
+          <div class="product-img product-visual pv-magnet"><span class="pv-icon">🧲</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.magnet_title">Magnesy na lodówkę</h3>
+            <p data-i18n="shop.magnet_desc">Kolorowe magnesy 3D.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Magnesy" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-headphone"><span class="pv-icon">🎧</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.headphone_title">Stand na słuchawki</h3>
+            <p data-i18n="shop.headphone_desc">Podstawka na słuchawki.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Stand%20słuchawki" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-keychain"><span class="pv-icon">🔑</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.keychain_title">Brelok z otwieraczem</h3>
+            <p data-i18n="shop.keychain_desc">Brelok z otwieraczem.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Brelok" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-whistle"><span class="pv-icon">📣</span><span class="product-badge" data-i18n="shop.discount">Nowość</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.whistle_title">Gwizdek z imieniem zwierzaka</h3>
+            <p data-i18n="shop.whistle_desc">Wpisz imię pupila w zamówieniu.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Gwizdek" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-coaster"><span class="pv-icon">☕</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.coaster_title">Podstawka na kubek</h3>
+            <p data-i18n="shop.coaster_desc">Podkładka pod kubek.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Podstawka" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-controller"><span class="pv-icon">🎮</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.controller_title">Stand na pada</h3>
+            <p data-i18n="shop.controller_desc">Uchwyt na kontroler.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Stand%20pada" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-collar"><span class="pv-icon">🐕</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.collar_title">Przypinka na obrożę</h3>
+            <p data-i18n="shop.collar_desc">Imię psa i numer telefonu.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Przypinka" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-nfc"><span class="pv-icon">📡</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.collar_nfc_title">Przypinka z tagiem NFC</h3>
+            <p data-i18n="shop.collar_nfc_desc">NFC z danymi kontaktowymi.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Przypinka%20NFC" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-airtag"><span class="pv-icon">📍</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.collar_airtag_title">Przypinka na AirTag</h3>
+            <p data-i18n="shop.collar_airtag_desc">Miejsce na Apple AirTag.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Przypinka%20AirTag" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img product-visual pv-food"><span class="pv-icon">🍱</span></div>
+          <div class="product-info">
+            <h3 data-i18n="shop.food_title">Pojemnik na karmę z clickerem</h3>
+            <p data-i18n="shop.food_desc">Pojemnik + clicker z imieniem psa.</p>
+            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Pojemnik%20clicker" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modele STL do pobrania -->
+  <section class="section section-models" id="models">
+    <div class="container fade-in">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="models.title">Modele do własnego druku</h2>
+        <p class="section-subtitle" data-i18n="models.subtitle">Kup plik STL lub 3MF i wydrukuj na swojej drukarce 3D</p>
+      </div>
+      <div class="products-grid" id="models-grid">
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-magnet"><span class="pv-icon">🧲</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.magnet_title">Magnesy — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Magnesy" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-headphone"><span class="pv-icon">🎧</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.headphone_title">Stand na słuchawki — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Stand%20słuchawki" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-keychain"><span class="pv-icon">🔑</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.keychain_title">Brelok — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Brelok" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-whistle"><span class="pv-icon">📣</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.whistle_title">Gwizdek — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Gwizdek" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-coaster"><span class="pv-icon">☕</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.coaster_title">Podstawka — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Podstawka" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-controller"><span class="pv-icon">🎮</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.controller_title">Stand na pada — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Stand%20pada" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-collar"><span class="pv-icon">🐕</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.collar_title">Przypinka — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Przypinka" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-nfc"><span class="pv-icon">📡</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.collar_nfc_title">Przypinka NFC — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Przypinka%20NFC" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-airtag"><span class="pv-icon">📍</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.collar_airtag_title">Przypinka AirTag — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20AirTag" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+        <div class="product-card model-card">
+          <div class="product-img product-visual pv-food"><span class="pv-icon">🍱</span></div>
+          <div class="product-info">
+            <h3 data-i18n="models.food_title">Pojemnik + clicker — model</h3>
+            <p data-i18n="models.file_desc">Plik STL/3MF do pobrania po opłaceniu.</p>
+            <span class="model-format">STL · 3MF</span>
+            <span class="product-price"><span data-i18n="models.price_from">od</span> — PLN</span>
+            <a href="mailto:xinfilleu@gmail.com?subject=Kup%20model:%20Pojemnik" class="btn-buy-model" data-i18n="models.buy">Kup model</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Własny plik + Cennik (zakładki) -->
+  <section class="section tabs-section" id="custom">
+    <div class="container fade-in">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="upload" data-i18n="calculator.tab_upload">Wyślij plik</button>
+        <button class="tab-btn" data-tab="calc" data-i18n="calculator.tab_calc">Oblicz cenę</button>
+      </div>
+      <div class="tab-panel active" id="tab-upload">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="upload.title">Wyślij własny plik</h2>
+          <p class="section-subtitle" data-i18n="upload.subtitle">Nie znalazłeś w naszym sklepie? Masz własny projekt? Wyślij plik STL lub 3MF.</p>
+        </div>
+        <div class="upload-form">
+          <div class="info-box custom-design-box">
+            <h3 data-i18n="custom_design.title">Nie masz pliku 3D? Zaprojektujemy model</h3>
+            <p data-i18n="custom_design.desc">Osobna, płatna usługa — najpierw wycena projektu, po opłaceniu przygotowujemy model. Druk to kolejny krok.</p>
+            <p class="info-box-note" data-i18n="custom_design.note">Złożone projekty = wyższa cena — zawsze potwierdzamy przed startem.</p>
+          </div>
+          <div class="info-box how-form-box">
+            <h3 data-i18n="upload.how_title">Jak działa formularz?</h3>
+            <p data-i18n="upload.how_desc">Wiadomość trafia na xinfilleu@gmail.com. Odpowiadamy z wyceną — po akceptacji i płatności zaczynamy druk.</p>
+          </div>
+          <div class="upload-zone" id="upload-zone">
+            <div class="upload-zone-icon">📤</div>
+            <p data-i18n="upload.drop">Przeciągnij plik tutaj lub kliknij, aby wybrać</p>
+            <small data-i18n="upload.formats">Dozwolone formaty: .stl, .3mf (max 50 MB)</small>
+            <input type="file" id="file-input" accept=".stl,.3mf" hidden>
+          </div>
+          <div class="file-preview" id="file-preview">
+            <div class="file-preview-info">
+              <div class="file-preview-name" id="file-name"></div>
+              <div class="file-preview-size" id="file-size"></div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="file-remove" data-i18n="upload.remove">Usuń</button>
+          </div>
+          <form id="upload-form" action="https://formsubmit.co/xinfilleu@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="Nowe zamówienie xinfill">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i18n="upload.name">Imię i nazwisko</label>
+                <input type="text" name="name" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="upload.email">E-mail</label>
+                <input type="email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label data-i18n="upload.phone">Telefon (opcjonalnie)</label>
+              <input type="tel" name="phone">
+            </div>
+            <div class="form-group">
+              <label data-i18n="upload.material_select">Preferowany materiał</label>
+              <select name="material">
+                <option value="PLA">PLA</option>
+                <option value="PETG">PETG</option>
+                <option value="TPU">TPU</option>
+                <option value="ASA">ASA</option>
+                <option value="ASA Premium">ASA Premium (wygładzony)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="colors.label">Kolor wydruku</label>
+              <div class="color-picker" id="upload-colors">
+                <label class="color-swatch"><input type="radio" name="color" value="Czarny" checked><span class="swatch sw-black"></span><span data-i18n="colors.black">Czarny</span></label>
+                <label class="color-swatch"><input type="radio" name="color" value="Biały"><span class="swatch sw-white"></span><span data-i18n="colors.white">Biały</span></label>
+                <label class="color-swatch"><input type="radio" name="color" value="Fioletowy"><span class="swatch sw-purple"></span><span data-i18n="colors.purple">Fioletowy</span></label>
+                <label class="color-swatch"><input type="radio" name="color" value="Inny"><span class="swatch sw-custom"></span><span data-i18n="colors.custom">Inny kolor</span></label>
+                <div class="color-custom-wrap" hidden>
+                  <input type="text" name="color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
+                </div>
+              </div>
+              <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — opisz w polu, potwierdzimy dostępność.</small>
+            </div>
+            <div class="form-group infill-group">
+              <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="upload-infill-val">20%</strong></label>
+              <input type="range" name="infill" id="upload-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="upload-infill-val" data-infill-preview="upload-infill-preview">
+              <div class="infill-preview-wrap">
+                <div class="infill-preview" id="upload-infill-preview"></div>
+              </div>
+              <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
+            </div>
+            <div class="form-group">
+              <label data-i18n="upload.personalization">Personalizacja (imię zwierzaka, napis)</label>
+              <input type="text" name="personalization" data-i18n-placeholder="upload.personalization_placeholder" placeholder="Np. imię psa">
+            </div>
+            <div class="form-group">
+              <label data-i18n="upload.notes">Uwagi do zamówienia</label>
+              <textarea name="notes"></textarea>
+            </div>
+            <div class="form-group form-consent">
+              <label class="consent-label">
+                <input type="checkbox" name="consent" id="consent-checkbox" required>
+                <span data-i18n-html="upload.consent">Akceptuję <a href="regulamin.html" target="_blank">Regulamin</a> i <a href="polityka-prywatnosci.html" target="_blank">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%" data-i18n="upload.submit">Wyślij zamówienie</button>
+            <div class="form-message" id="form-message"></div>
+          </form>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-calc">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="calculator.title">Cennik</h2>
+          <p class="section-subtitle" data-i18n="calculator.subtitle">Wybierz materiał, wpisz wagę wydruku — dostaniesz cenę</p>
+        </div>
+        <div class="calc-box">
+          <div class="form-group">
+            <label data-i18n="calculator.material">Materiał</label>
+            <select id="calc-material">
+              <option value="PLA">PLA</option>
+              <option value="PETG">PETG</option>
+              <option value="TPU">TPU</option>
+              <option value="ASA">ASA</option>
+              <option value="ASA_PREMIUM">ASA Premium (wygładzony)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="calculator.weight">Waga wydruku (gramy)</label>
+              <input type="number" id="calc-weight" min="1" max="5000" value="100" placeholder="100">
+            </div>
+            <div class="form-group">
+              <label data-i18n="calculator.quantity">Ilość sztuk</label>
+              <input type="number" id="calc-quantity" min="1" max="100" value="1">
+            </div>
+          </div>
+          <div class="form-group infill-group">
+            <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="calc-infill-val">20%</strong></label>
+            <input type="range" id="calc-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="calc-infill-val" data-infill-preview="calc-infill-preview">
+            <div class="infill-preview-wrap">
+              <div class="infill-preview" id="calc-infill-preview"></div>
+            </div>
+            <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
+          </div>
+          <button class="btn btn-primary" id="calc-btn" style="width:100%" data-i18n="calculator.calculate">Oblicz cenę</button>
+          <div class="calc-result" id="calc-result">
+            <div style="color:var(--gray);font-size:0.85rem;margin-bottom:0.25rem" data-i18n="calculator.result">Szacunkowa cena</div>
+            <div class="calc-result-price" id="calc-price">—</div>
+            <div class="calc-result-detail" id="calc-detail"></div>
+          </div>
+          <p class="calc-note" data-i18n="calculator.note">Orientacyjna wycena. Dokładną cenę potwierdzimy po analizie pliku.</p>
+          <p class="calc-note" data-i18n="calculator.shipping">Wysyłka na terenie Polski — wycena osobno</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer info panel -->
+  <section class="footer-info" id="footer-info">
+    <div class="container">
+      <div class="footer-info-grid">
+        <div class="footer-info-col">
+          <h4 data-i18n="contact.title">Kontakt</h4>
+          <a href="mailto:xinfilleu@gmail.com" class="footer-email" data-contact-email>xinfilleu@gmail.com</a>
+          <div class="footer-social">
+            <a href="#" data-social="instagram" target="_blank" rel="noopener" title="Instagram">📷</a>
+            <a href="#" data-social="facebook" target="_blank" rel="noopener" title="Facebook">📘</a>
+            <a href="#" data-social="youtube" target="_blank" rel="noopener" title="YouTube">▶️</a>
+            <a href="#" data-social="telegram" target="_blank" rel="noopener" title="Telegram">✈️</a>
+          </div>
+        </div>
+        <div class="footer-info-col">
+          <h4 data-i18n="delivery.title">Dostawa</h4>
+          <p>📦 InPost (Paczkomat / kurier)</p>
+          <p>🚚 DPD (Pickup / kurier)</p>
+          <small data-i18n="delivery.note_short">Wysyłamy w kartonie z zabezpieczeniem. Cena dostawy w wycenie.</small>
+        </div>
+        <div class="footer-info-col">
+          <h4>xinfill</h4>
+          <p data-i18n="footer.seller_short">Jakub · Polska</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Druk 3D FDM — PLA · PETG · TPU · ASA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="footer-legal">
+        <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
+        <span>·</span>
+        <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
+      </nav>
+      <p>© 2026 xinfill. <span data-i18n="footer.rights">Wszelkie prawa zastrzeżone.</span></p>
+    </div>
+  </footer>
+
+  <!-- Koszyk (drawer) -->
+  <div class="overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" hidden>
+    <div class="cart-drawer-header">
+      <div class="cart-breadcrumb">xinfill / Koszyk</div>
+      <button class="modal-close" id="cart-close" aria-label="Zamknij">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty">Koszyk jest pusty.</div>
+
+    <div class="cart-form" id="cart-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Imię i nazwisko</label>
+          <input type="text" id="cart-name" required>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="cart-email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Telefon (opcjonalnie)</label>
+        <input type="tel" id="cart-phone">
+      </div>
+      <div class="form-group">
+        <label>Wiadomość do zamówienia</label>
+        <textarea id="cart-message" rows="3"></textarea>
+      </div>
+      <button class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
+      <p class="cart-note">Po akceptacji wyceny i płatności zaczynamy preorder (realizacja ok. 2 tygodnie).</p>
+    </div>
+  </aside>
+
+  <!-- Szczegóły produktu -->
+  <div class="overlay" id="product-overlay" hidden></div>
+  <div class="modal product-modal" id="product-modal" hidden>
+    <div class="product-modal-body">
+      <button class="modal-close" id="product-close" aria-label="Zamknij">×</button>
+      <div class="product-breadcrumb">xinfill / Produkt</div>
+      <h2 id="product-modal-title"></h2>
+      <p id="product-modal-short" class="product-short"></p>
+      <div id="product-modal-long" class="product-long"></div>
+
+      <div class="product-print-options">
+        <div class="form-group">
+          <label data-i18n="colors.label">Kolor wydruku</label>
+          <div class="color-picker">
+            <label class="color-swatch">
+              <input type="radio" name="product-color" value="Czarny" checked>
+              <span class="swatch sw-black"></span>
+              <span data-i18n="colors.black">Czarny</span>
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="product-color" value="Biały">
+              <span class="swatch sw-white"></span>
+              <span data-i18n="colors.white">Biały</span>
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="product-color" value="Fioletowy">
+              <span class="swatch sw-purple"></span>
+              <span data-i18n="colors.purple">Fioletowy</span>
+            </label>
+            <label class="color-swatch">
+              <input type="radio" name="product-color" value="Inny">
+              <span class="swatch sw-custom"></span>
+              <span data-i18n="colors.custom">Inny kolor</span>
+            </label>
+          </div>
+          <div class="color-custom-wrap" hidden>
+            <input type="text" name="product-color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
+          </div>
+          <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — potwierdzimy w wiadomości.</small>
+        </div>
+
+        <div class="form-group infill-group">
+          <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="product-infill-val">20%</strong></label>
+          <input type="range" id="product-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="product-infill-val" data-infill-preview="product-infill-preview">
+          <div class="infill-preview-wrap">
+            <div class="infill-preview" id="product-infill-preview"></div>
+          </div>
+          <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="upload.personalization">Personalizacja (imię zwierzaka, napis itd.)</label>
+        <input type="text" id="product-personalization" data-i18n-placeholder="upload.personalization_placeholder" placeholder="Np. imię psa na gwizdku lub przypince">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ilość</label>
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" id="product-qty-minus">−</button>
+            <input type="number" id="product-qty" min="1" max="50" value="1">
+            <button type="button" class="qty-btn" id="product-qty-plus">+</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="product-add-to-cart" style="width:100%">Dodaj do koszyka</button>
+    </div>
+  </div>
+
+
+  <div class="cookie-banner" id="cookie-banner" hidden>
+    <div class="cookie-banner-inner">
+      <p data-i18n-html="cookies.text">Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
+      <button class="btn btn-primary btn-sm" id="cookie-accept" data-i18n="cookies.accept">Rozumiem</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

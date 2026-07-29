@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Gadgets",
+    "models": "Models",
+    "upload": "Your file",
+    "calculator": "Pricing",
+    "delivery": "Delivery",
+    "contact": "Contact"
+  },
+  "panels": {
+    "gadgets": "Our gadgets",
+    "gadgets_desc": "Ready products — order and get delivered",
+    "upload": "Your file",
+    "upload_desc": "Have STL or 3MF? We'll print it",
+    "pricing": "Pricing",
+    "pricing_desc": "Calculate estimated print cost",
+    "models": "Models to print",
+    "models_desc": "Buy STL file and print at home"
+  },
+  "info": {
+    "time": "⏱ Lead time: approx. 2 weeks",
+    "max_size": "📐 Max size: 260×260×260 mm"
+  },
+  "hero": {
+    "badge": "3D gadgets for home",
+    "slogan": "We print your idea",
+    "subtitle": "Your idea. Our print. Straight to your door.",
+    "description": "Gadgets, custom prints and STL files. Shipping across Poland.",
+    "cta_shop": "Shop gadgets"
+  },
+  "preorder": {
+    "title": "Preorder — pay first, then we print",
+    "desc": "After you accept the quote and pay, we start production (~2 weeks). No payment, no print."
+  },
+  "actions": {
+    "shop_title": "Our gadgets",
+    "shop_desc": "Ready products — order with delivery",
+    "upload_title": "Your file",
+    "upload_desc": "Have STL or 3MF? We'll print it",
+    "calc_title": "Pricing",
+    "calc_desc": "Estimate print price",
+    "models_title": "Printable models",
+    "models_desc": "Buy STL and print at home"
+  },
+  "materials": {
+    "pla": "good quality, easy to print",
+    "petg": "durable",
+    "tpu": "flexible",
+    "asa": "UV resistant",
+    "asa_premium": "smoothed and shiny",
+    "brands": "We use proven, good quality materials."
+  },
+  "shop": {
+    "title": "Our gadgets",
+    "subtitle": "Pick a product and order — we ship across Poland",
+    "coming": "Coming soon",
+    "discount": "New",
+    "price_from": "from",
+    "buy": "Order",
+    "magnet_title": "Fridge magnets",
+    "magnet_desc": "Colorful 3D magnets — sets or single pieces.",
+    "headphone_title": "Headphone stand",
+    "headphone_desc": "Stable stand for gaming or studio headphones.",
+    "keychain_title": "Keychain with bottle opener",
+    "keychain_desc": "Handy keychain with built-in opener.",
+    "whistle_title": "Pet name whistle",
+    "whistle_desc": "Personalized whistle — add pet name in your order.",
+    "coaster_title": "Cup coaster",
+    "coaster_desc": "Stylish coaster that protects your desk.",
+    "controller_title": "Controller stand",
+    "controller_desc": "Holder for console or PC gamepad.",
+    "collar_title": "Dog collar tag",
+    "collar_desc": "Dog name and owner's phone number.",
+    "collar_nfc_title": "Collar tag with NFC",
+    "collar_nfc_desc": "Like basic tag + NFC contact info.",
+    "collar_airtag_title": "AirTag collar tag",
+    "collar_airtag_desc": "Slot for Apple AirTag on collar.",
+    "food_title": "Food container with clicker",
+    "food_desc": "Treat container + training clicker with dog's name."
+  },
+  "models": {
+    "title": "Models for home printing",
+    "subtitle": "Buy STL/3MF and print on your own 3D printer",
+    "price_from": "from",
+    "buy": "Buy model",
+    "magnet_title": "Fridge magnets — model",
+    "headphone_title": "Headphone stand — model",
+    "keychain_title": "Keychain — model",
+    "whistle_title": "Pet whistle — model",
+    "coaster_title": "Coaster — model",
+    "controller_title": "Controller stand — model",
+    "collar_title": "Collar tag — model",
+    "collar_nfc_title": "NFC tag — model",
+    "collar_airtag_title": "AirTag tag — model",
+    "food_title": "Container + clicker — model",
+    "file_desc": "Ready-to-print file. Download link after payment."
+  },
+  "custom_design": {
+    "title": "No 3D file? We'll design the model",
+    "desc": "Need a unique gadget but no STL/3MF? Custom 3D design is a separate paid service. We quote first, you pay, then we create the model. Printing is a separate step.",
+    "note": "Complex ideas take more time and cost — we always confirm price before starting."
+  },
+  "colors": {
+    "label": "Print color",
+    "black": "Black",
+    "white": "White",
+    "purple": "Purple",
+    "custom": "Other color",
+    "custom_placeholder": "Describe color (e.g. matte red) — we'll confirm availability",
+    "custom_note": "Other colors on request — describe in notes, we'll get back to you."
+  },
+  "infill": {
+    "label": "Infill",
+    "hint": "Higher infill = stronger print, more material and weight."
+  },
+  "calculator": {
+    "title": "Pricing",
+    "subtitle": "Estimate only — binding quote after file review",
+    "material": "Material",
+    "weight": "Print weight (grams)",
+    "quantity": "Quantity",
+    "calculate": "Calculate price",
+    "result": "Estimated price",
+    "per_piece": "per piece",
+    "note": "Estimate only. We'll confirm after reviewing your file.",
+    "shipping": "Shipping within Poland — quoted separately",
+    "tab_upload": "Upload file",
+    "tab_calc": "Calculate price"
+  },
+  "upload": {
+    "title": "Send your file",
+    "subtitle": "Have STL or 3MF? Send it — we'll quote and print after payment.",
+    "drop": "Drag a file here or click to browse",
+    "formats": "Allowed: .stl, .3mf (max 50 MB)",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "material_select": "Preferred material",
+    "personalization": "Personalization (pet name, text, etc.)",
+    "personalization_placeholder": "E.g. dog name on whistle or tag",
+    "notes": "Order notes",
+    "submit": "Send inquiry",
+    "success": "Thank you! We'll reply within 24–48 hours.",
+    "error": "Something went wrong. Try again or email us.",
+    "remove": "Remove",
+    "consent": "I accept the <a href=\"regulamin.html\" target=\"_blank\">Terms</a> and <a href=\"polityka-prywatnosci.html\" target=\"_blank\">Privacy Policy</a> and agree to data processing for order fulfillment.",
+    "consent_error": "Please accept the Terms and Privacy Policy before submitting.",
+    "how_title": "How does the form work?",
+    "how_desc": "Your message goes to xinfilleu@gmail.com. We reply with a quote — after you accept and pay, we start printing."
+  },
+  "delivery": {
+    "title": "Delivery",
+    "subtitle": "We ship across Poland — InPost and DPD",
+    "inpost_title": "InPost parcel locker",
+    "inpost_desc": "Most common for gadgets and smaller prints.",
+    "size_a": "Size A",
+    "size_b": "Size B",
+    "size_c": "Size C",
+    "dpd_title": "DPD Pickup / courier",
+    "dpd_desc": "Pickup point or delivery to your address.",
+    "dpd_pickup": "DPD Pickup (up to 2 kg)",
+    "dpd_courier": "DPD courier (up to 5 kg)",
+    "packaging_title": "Packaging",
+    "packaging_desc": "Every shipment is packed in a sturdy box with film as padding — so your product arrives safely.",
+    "note": "Indicative prices based on InPost and DPD rates for private senders (2026). Exact cost quoted with your order.",
+    "note_short": "Shipped in cardboard with padding. Delivery cost included in quote."
+  },
+  "about": {
+    "title": "About me",
+    "name": "Jakub",
+    "placeholder": "FDM 3D printing — own gadgets and custom prints. Shipping across Poland.",
+    "location": "Poland — shipping nationwide"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "Email",
+    "social": "Social media",
+    "address_note": "Correspondence and complaint address provided when order is confirmed.",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "youtube": "YouTube",
+    "telegram": "Telegram"
+  },
+  "cookies": {
+    "text": "This site uses localStorage to remember your language. By using the site, you accept our <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
+    "accept": "Got it"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "FDM 3D printing — PLA · PETG · TPU · ASA",
+    "terms": "Terms",
+    "privacy": "Privacy Policy",
+    "seller": "Jakub · xinfill · Poland",
+    "seller_short": "Jakub · Poland"
+  }
+}
