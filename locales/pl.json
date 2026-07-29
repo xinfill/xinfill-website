@@ -133,6 +133,7 @@
     "subtitle": "Masz STL lub 3MF? Wyślij plik — wycenimy i po opłaceniu zaczniemy druk.",
     "drop": "Przeciągnij plik tutaj lub kliknij, aby wybrać",
     "formats": "Dozwolone formaty: .stl, .3mf (max 50 MB)",
+    "max_size": "Max wymiary wydruku: 260×260×260 mm",
     "name": "Imię i nazwisko",
     "email": "E-mail",
     "phone": "Telefon (opcjonalnie)",

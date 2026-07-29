@@ -37,10 +37,10 @@ function showSection(id, tab) {
 }
 
 function initSpa() {
-  // Hide models and custom on load, show shop by default
+  // Hide all panel sections on load (Start = just hero + panels)
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
-    if (el) el.hidden = s !== "shop";
+    if (el) el.hidden = true;
   });
 
   document.addEventListener("click", (e) => {
@@ -52,8 +52,12 @@ function initSpa() {
     const tab = link.dataset.tab || null;
 
     if (section === "home") {
-      // Show shop, scroll to top
-      showSection("shop", null);
+      PANEL_SECTIONS.forEach((s) => {
+        const el = document.getElementById(s);
+        if (el) el.hidden = true;
+      });
+      document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
+      document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", "#home");
       return;

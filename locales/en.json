@@ -133,6 +133,7 @@
     "subtitle": "Have STL or 3MF? Send it — we'll quote and print after payment.",
     "drop": "Drag a file here or click to browse",
     "formats": "Allowed: .stl, .3mf (max 50 MB)",
+    "max_size": "Max print size: 260×260×260 mm",
     "name": "Full name",
     "email": "Email",
     "phone": "Phone (optional)",
