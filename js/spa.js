@@ -1,4 +1,4 @@
-const PANEL_SECTIONS = ["shop", "models", "custom"];
+const PANEL_SECTIONS = ["shop", "models", "custom", "dostawa", "contact"];
 
 function showSection(id, tab) {
   PANEL_SECTIONS.forEach((s) => {
