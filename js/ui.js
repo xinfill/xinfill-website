@@ -18,13 +18,16 @@ function initInfillSliders() {
 
 function initColorPickers() {
   document.querySelectorAll(".color-picker").forEach((picker) => {
-    const customWrap = picker.querySelector(".color-custom-wrap");
+    const customWrap =
+      picker.querySelector(".color-custom-wrap") ||
+      picker.parentElement?.querySelector(".color-custom-wrap");
     const radios = picker.querySelectorAll('input[type="radio"]');
 
     radios.forEach((radio) => {
-        radio.addEventListener("change", () => {
-        const isCustom = radio.value === "Inny" && radio.checked;
-        if (customWrap) customWrap.hidden = !isCustom;
+      radio.addEventListener("change", () => {
+        if (!customWrap) return;
+        const checked = picker.querySelector('input[type="radio"]:checked');
+        customWrap.hidden = checked?.value !== "Inny";
       });
     });
   });

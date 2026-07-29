@@ -402,10 +402,6 @@
               <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
             </div>
             <div class="form-group">
-              <label data-i18n="upload.personalization">Personalizacja (imię zwierzaka, napis)</label>
-              <input type="text" name="personalization" data-i18n-placeholder="upload.personalization_placeholder" placeholder="Np. imię psa">
-            </div>
-            <div class="form-group">
               <label data-i18n="upload.notes">Uwagi do zamówienia</label>
               <textarea name="notes"></textarea>
             </div>
@@ -577,9 +573,9 @@
                   <span class="swatch sw-custom"></span>
                   <span data-i18n="colors.custom">Inny kolor</span>
                 </label>
-              </div>
-              <div class="color-custom-wrap" hidden>
-                <input type="text" name="product-color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
+                <div class="color-custom-wrap" hidden>
+                  <input type="text" id="product-color-custom" name="product-color_custom" data-i18n-placeholder="colors.custom_placeholder" placeholder="Opisz kolor">
+                </div>
               </div>
               <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — potwierdzimy w wiadomości.</small>
             </div>
