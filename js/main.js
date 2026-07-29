@@ -3,7 +3,7 @@ import { initI18n } from "./i18n.js";
 import { initCalculator, initTabs } from "./calculator.js";
 import { initUpload } from "./upload.js";
 import { initInfillSliders, initColorPickers } from "./ui.js";
-import { initCart } from "./cart.js";
+import { initCart, refreshCartUi } from "./cart.js";
 import { initProductModal } from "./product-modal.js";
 import { initCustomModal } from "./custom-modal.js";
 import { initSpa } from "./spa.js";
@@ -49,13 +49,19 @@ function initCookies() {
   const accept = document.getElementById("cookie-accept");
   if (!banner || !accept) return;
 
+  const syncBannerOffset = () => {
+    document.body.classList.toggle("has-cookie-banner", !banner.hidden);
+  };
+
   if (!localStorage.getItem("xinfill-cookies")) {
     banner.hidden = false;
   }
+  syncBannerOffset();
 
   accept.addEventListener("click", () => {
     localStorage.setItem("xinfill-cookies", "1");
     banner.hidden = true;
+    syncBannerOffset();
   });
 }
 
@@ -87,4 +93,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCustomModal();
   initSpa();
   initScrollAnimations();
+  document.addEventListener("xinfill-i18n-ready", () => refreshCartUi());
 });

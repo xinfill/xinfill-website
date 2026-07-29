@@ -20,6 +20,7 @@ async function loadTranslations(lang) {
     applyTranslations();
     updateLangButtons();
     document.documentElement.lang = lang;
+    document.dispatchEvent(new CustomEvent("xinfill-i18n-ready"));
   } catch (e) {
     console.error("Failed to load translations:", e);
   }

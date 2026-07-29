@@ -10,6 +10,11 @@ function hideExtras() {
   });
 }
 
+function revealFadeIns(root) {
+  if (!root) return;
+  root.querySelectorAll(".fade-in").forEach((el) => el.classList.add("visible"));
+}
+
 function showSection(id, tab) {
   showHomeChrome();
   hideExtras();
@@ -17,6 +22,7 @@ function showSection(id, tab) {
     const el = document.getElementById(s);
     if (!el) return;
     el.hidden = s !== id;
+    if (s === id) revealFadeIns(el);
   });
 
   if (id === "custom" && tab) {
@@ -45,6 +51,39 @@ function showSection(id, tab) {
   }
 }
 
+function handleRoute() {
+  const hash = location.hash.replace(/^#/, "");
+
+  if (!hash || hash === "home") {
+    hideAllContent();
+    showHomeChrome();
+    hideExtras();
+    document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
+    document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  if (hash === "cart") {
+    document.getElementById("cart-toggle")?.click();
+    return;
+  }
+
+  if (PANEL_SECTIONS.includes(hash)) {
+    const tab = hash === "custom" ? new URLSearchParams(location.search).get("tab") : null;
+    showSection(hash, tab);
+    return;
+  }
+
+  // Nieznany hash (np. #product-magnet) — pokaż start, żeby strona nie była pusta
+  hideAllContent();
+  showHomeChrome();
+  hideExtras();
+  document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
+  document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function initSpa() {
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
@@ -62,12 +101,8 @@ function initSpa() {
     const tab = link.dataset.tab || null;
 
     if (section === "home") {
-      hideAllContent();
-      showHomeChrome();
-      document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
-      document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
-      window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", "#home");
+      handleRoute();
       return;
     }
 
@@ -77,10 +112,8 @@ function initSpa() {
     }
   });
 
-  const hash = location.hash.replace("#", "");
-  if (hash && PANEL_SECTIONS.includes(hash)) {
-    showSection(hash);
-  }
+  window.addEventListener("hashchange", handleRoute);
+  handleRoute();
 }
 
 export { initSpa };

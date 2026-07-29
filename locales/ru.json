@@ -183,8 +183,54 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "Сайт использует localStorage. Используя сайт, вы принимаете <a href=\"polityka-prywatnosci.html\">Политику конфиденциальности</a>.",
+    "text": "Сайт использует localStorage. Используя сайт, вы принимаете <a href=\"regulamin.html\">Условия</a> и <a href=\"polityka-prywatnosci.html\">Политику конфиденциальности</a>.",
     "accept": "Понятно"
+  },
+  "legal": {
+    "home_notice": "Используя сайт, вы принимаете <a href=\"regulamin.html\">Условия</a> и <a href=\"polityka-prywatnosci.html\">Политику конфиденциальности</a>.",
+    "bar_label": "Правовая информация:"
+  },
+  "cart": {
+    "title": "Корзина",
+    "empty": "Корзина пуста.",
+    "summary": "Итого",
+    "products": "Товары",
+    "shipping": "Доставка",
+    "total": "Всего",
+    "price_on_request": "По запросу",
+    "preorder_note": "Предзаказ — сначала согласование и оплата, затем изготовление (~2 недели).",
+    "delivery_method": "Способ доставки",
+    "shipping_address": "Постамат / адрес доставки",
+    "shipping_address_ph": "например, код InPost или адрес DPD",
+    "name": "Имя и фамилия",
+    "email": "E-mail",
+    "phone": "Телефон (необязательно)",
+    "message": "Сообщение к заказу",
+    "submit": "Отправить заказ",
+    "pay_online": "Оплатить онлайн",
+    "note": "Заказ отправляется на e-mail. После согласования цены вышлем ссылку на оплату.",
+    "color": "Цвет",
+    "infill": "Заполнение",
+    "personalization": "Персонализация",
+    "model_type": "Тип: модель STL/3MF",
+    "remove": "Удалить",
+    "increase": "Увеличить количество",
+    "decrease": "Уменьшить количество",
+    "free_shipping_info": "Бесплатная доставка от {amount} (стоимость товаров).",
+    "free_shipping_applied": "Поздравляем — у вас бесплатная доставка!",
+    "free_shipping_remaining": "До бесплатной доставки осталось {amount}.",
+    "free_shipping_label": "Бесплатно",
+    "back": "← Назад",
+    "success": "Заказ отправлен! Мы ответим с ценой или ссылкой на оплату.",
+    "error_required": "Укажите имя, e-mail и адрес/постамат доставки.",
+    "error_submit": "Ошибка отправки. Проверьте активацию FormSubmit на {email}.",
+    "delivery": {
+      "inpost_a": "InPost — размер A",
+      "inpost_b": "InPost — размер B",
+      "inpost_c": "InPost — размер C",
+      "dpd_pickup": "DPD Pickup (до 2 кг)",
+      "dpd_courier": "Курьер DPD (до 5 кг)"
+    }
   },
   "footer": {
     "rights": "Все права защищены.",

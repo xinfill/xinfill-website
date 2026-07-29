@@ -94,6 +94,9 @@
           <small data-i18n="panels.models_desc">Kup plik STL i wydrukuj sam</small>
         </button>
       </div>
+      <div class="home-legal-box" id="home-legal">
+        <p class="home-legal-text" data-i18n-html="legal.home_notice">Korzystając ze strony akceptujesz <a href="regulamin.html">Regulamin</a> oraz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
+      </div>
     </div>
   </section>
 
@@ -114,7 +117,7 @@
           <div class="product-info">
             <h3 data-i18n="shop.magnet_title">Magnesy na lodówkę</h3>
             <p data-i18n="shop.magnet_desc">Kolorowe magnesy 3D.</p>
-            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <span class="product-price">30,00 zł</span>
             <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Magnesy" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
           </div>
         </div>
@@ -123,7 +126,7 @@
           <div class="product-info">
             <h3 data-i18n="shop.headphone_title">Stand na słuchawki</h3>
             <p data-i18n="shop.headphone_desc">Podstawka na słuchawki.</p>
-            <span class="product-price"><span data-i18n="shop.price_from">od</span> — PLN</span>
+            <span class="product-price">150,00 zł</span>
             <a href="mailto:xinfilleu@gmail.com?subject=Zamówienie:%20Stand%20słuchawki" class="btn-buy-model" data-i18n="shop.buy">Zamów</a>
           </div>
         </div>
@@ -615,38 +618,67 @@
   <!-- Strona koszyka -->
   <section class="section cart-page" id="cart-page" hidden>
     <div class="container cart-page-inner">
-      <button type="button" class="page-back" id="cart-close">← Wróć</button>
+      <button type="button" class="page-back" id="cart-close" data-i18n="cart.back">← Wróć</button>
       <div class="cart-drawer-header">
-        <h1 class="section-title" style="text-align:left;margin:0">Koszyk</h1>
+        <h1 class="section-title" style="text-align:left;margin:0" data-i18n="cart.title">Koszyk</h1>
       </div>
       <div class="cart-page-grid">
         <div>
           <div class="cart-items" id="cart-items"></div>
-          <div class="cart-empty" id="cart-empty">Koszyk jest pusty.</div>
+          <div class="cart-empty" id="cart-empty" data-i18n="cart.empty">Koszyk jest pusty.</div>
         </div>
         <div class="cart-form" id="cart-form">
+          <div class="cart-summary-box">
+            <h3 class="cart-summary-title" data-i18n="cart.summary">Podsumowanie</h3>
+            <div class="cart-totals" id="cart-totals">
+              <div class="cart-total-line">
+                <span data-i18n="cart.products">Produkty</span>
+                <span id="cart-subtotal">Do wyceny</span>
+              </div>
+              <div class="cart-total-line">
+                <span data-i18n="cart.shipping">Dostawa</span>
+                <span id="cart-shipping-cost">—</span>
+              </div>
+              <div class="cart-total-line cart-total-grand">
+                <span data-i18n="cart.total">Razem</span>
+                <span id="cart-total">Do wyceny</span>
+              </div>
+            </div>
+            <p class="cart-free-shipping-info" id="cart-free-shipping-info"></p>
+            <p class="cart-preorder-note" data-i18n="cart.preorder_note">Preorder — najpierw akceptacja wyceny i płatność, potem realizacja (~2 tygodnie).</p>
+          </div>
+
           <form id="cart-order-form">
+            <div class="form-group">
+              <label data-i18n="cart.delivery_method">Sposób dostawy</label>
+              <select id="cart-delivery" name="delivery" required></select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="cart.shipping_address">Paczkomat / adres dostawy</label>
+              <input type="text" id="cart-shipping-address" name="shipping_address" required data-i18n-placeholder="cart.shipping_address_ph">
+            </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Imię i nazwisko</label>
+                <label data-i18n="cart.name">Imię i nazwisko</label>
                 <input type="text" id="cart-name" name="name" required>
               </div>
               <div class="form-group">
-                <label>E-mail</label>
+                <label data-i18n="cart.email">E-mail</label>
                 <input type="email" id="cart-email" name="email" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Telefon (opcjonalnie)</label>
+              <label data-i18n="cart.phone">Telefon (opcjonalnie)</label>
               <input type="tel" id="cart-phone" name="phone">
             </div>
             <div class="form-group">
-              <label>Wiadomość do zamówienia</label>
+              <label data-i18n="cart.message">Wiadomość do zamówienia</label>
               <textarea id="cart-message" name="message" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" id="cart-submit" style="width:100%">Wyślij zamówienie</button>
+            <button type="submit" class="btn btn-primary" id="cart-submit" style="width:100%" data-i18n="cart.submit">Wyślij zamówienie</button>
+            <a href="#" class="btn btn-outline cart-pay-online hidden" id="cart-pay-online" target="_blank" rel="noopener" data-i18n="cart.pay_online">Zapłać online</a>
             <div class="form-message" id="cart-message-status" style="display:none"></div>
-            <p class="cart-note">Zamówienie trafia na e-mail (FormSubmit). Po akceptacji wyceny i płatności zaczynamy preorder (~2 tygodnie).</p>
+            <p class="cart-note" data-i18n="cart.note">Zamówienie trafia na e-mail. Po akceptacji wyceny wyślemy link do płatności lub dane do przelewu.</p>
           </form>
         </div>
       </div>
@@ -694,6 +726,15 @@
   </footer>
 
 
+  <div class="legal-bar" id="legal-bar">
+    <div class="container legal-bar-inner">
+      <span class="legal-bar-label" data-i18n="legal.bar_label">Informacje prawne:</span>
+      <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
+      <span class="legal-bar-sep">·</span>
+      <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
+    </div>
+  </div>
+
   <div class="cookie-banner" id="cookie-banner" hidden>
     <div class="cookie-banner-inner">
       <p data-i18n-html="cookies.text">Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
@@ -701,6 +742,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js?v=20260729"></script>
 </body>
 </html>

@@ -164,7 +164,7 @@
     "dpd_courier": "Kurier DPD (do 5 kg)",
     "packaging_title": "Pakowanie",
     "packaging_desc": "Każda przesyłka pakowana jest w solidny karton, a wnętrze zabezpieczamy folią jako wypełnienie — żeby produkt dotarł bezpiecznie.",
-    "note": "Ceny orientacyjne wg cenników InPost i DPD dla osób prywatnych (2026). Dokładny koszt dostawy podajemy w wycenie zamówienia.",
+    "note": "Ceny orientacyjne wg cenników InPost i DPD dla osób prywatnych (2026). Darmowa dostawa od 150 zł (wartość produktów). Dokładny koszt podajemy w wycenie zamówienia.",
     "note_short": "Wysyłamy w kartonie z zabezpieczeniem. Cena dostawy w wycenie."
   },
   "about": {
@@ -184,8 +184,54 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
+    "text": "Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href=\"regulamin.html\">Regulamin</a> i <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
     "accept": "Rozumiem"
+  },
+  "legal": {
+    "home_notice": "Korzystając ze strony akceptujesz <a href=\"regulamin.html\">Regulamin</a> oraz <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
+    "bar_label": "Informacje prawne:"
+  },
+  "cart": {
+    "title": "Koszyk",
+    "empty": "Koszyk jest pusty.",
+    "summary": "Podsumowanie",
+    "products": "Produkty",
+    "shipping": "Dostawa",
+    "total": "Razem",
+    "price_on_request": "Do wyceny",
+    "preorder_note": "Preorder — najpierw akceptacja wyceny i płatność, potem realizacja (~2 tygodnie).",
+    "delivery_method": "Sposób dostawy",
+    "shipping_address": "Paczkomat / adres dostawy",
+    "shipping_address_ph": "np. kod paczkomatu InPost lub adres DPD",
+    "name": "Imię i nazwisko",
+    "email": "E-mail",
+    "phone": "Telefon (opcjonalnie)",
+    "message": "Wiadomość do zamówienia",
+    "submit": "Wyślij zamówienie",
+    "pay_online": "Zapłać online",
+    "note": "Zamówienie trafia na e-mail. Po akceptacji wyceny wyślemy link do płatności lub dane do przelewu.",
+    "color": "Kolor",
+    "infill": "Infill",
+    "personalization": "Personalizacja",
+    "model_type": "Typ: model STL/3MF",
+    "remove": "Usuń",
+    "increase": "Zwiększ ilość",
+    "decrease": "Zmniejsz ilość",
+    "free_shipping_info": "Darmowa dostawa od {amount} (wartość produktów).",
+    "free_shipping_applied": "Gratulacje — masz darmową dostawę!",
+    "free_shipping_remaining": "Brakuje {amount} do darmowej dostawy.",
+    "free_shipping_label": "Gratis",
+    "back": "← Wróć",
+    "success": "Zamówienie wysłane! Odezwiemy się z wyceną lub linkiem do płatności.",
+    "error_required": "Podaj imię, e-mail i adres/paczkomat dostawy.",
+    "error_submit": "Błąd wysyłki. Sprawdź czy FormSubmit jest aktywowany na {email}.",
+    "delivery": {
+      "inpost_a": "InPost Paczkomat — gabaryt A",
+      "inpost_b": "InPost Paczkomat — gabaryt B",
+      "inpost_c": "InPost Paczkomat — gabaryt C",
+      "dpd_pickup": "DPD Pickup (do 2 kg)",
+      "dpd_courier": "Kurier DPD (do 5 kg)"
+    }
   },
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone.",

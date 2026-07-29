@@ -184,8 +184,54 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "This site uses localStorage to remember your language. By using the site, you accept our <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
+    "text": "This site uses localStorage to remember your language. By using the site, you accept our <a href=\"regulamin.html\">Terms</a> and <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
     "accept": "Got it"
+  },
+  "legal": {
+    "home_notice": "By using this site you accept our <a href=\"regulamin.html\">Terms</a> and <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
+    "bar_label": "Legal:"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "summary": "Summary",
+    "products": "Products",
+    "shipping": "Shipping",
+    "total": "Total",
+    "price_on_request": "Price on request",
+    "preorder_note": "Preorder — quote approval and payment first, then production (~2 weeks).",
+    "delivery_method": "Delivery method",
+    "shipping_address": "Parcel locker / delivery address",
+    "shipping_address_ph": "e.g. InPost locker code or DPD address",
+    "name": "Full name",
+    "email": "E-mail",
+    "phone": "Phone (optional)",
+    "message": "Order message",
+    "submit": "Submit order",
+    "pay_online": "Pay online",
+    "note": "Your order is sent by e-mail. After quote approval we send a payment link or bank details.",
+    "color": "Color",
+    "infill": "Infill",
+    "personalization": "Personalization",
+    "model_type": "Type: STL/3MF model",
+    "remove": "Remove",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "free_shipping_info": "Free shipping from {amount} (products value).",
+    "free_shipping_applied": "Congratulations — you have free shipping!",
+    "free_shipping_remaining": "{amount} left until free shipping.",
+    "free_shipping_label": "Free",
+    "back": "← Back",
+    "success": "Order sent! We'll reply with a quote or payment link.",
+    "error_required": "Please enter name, e-mail and delivery address/locker.",
+    "error_submit": "Send failed. Check if FormSubmit is activated on {email}.",
+    "delivery": {
+      "inpost_a": "InPost locker — size A",
+      "inpost_b": "InPost locker — size B",
+      "inpost_c": "InPost locker — size C",
+      "dpd_pickup": "DPD Pickup (up to 2 kg)",
+      "dpd_courier": "DPD courier (up to 5 kg)"
+    }
   },
   "footer": {
     "rights": "All rights reserved.",

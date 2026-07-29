@@ -183,8 +183,54 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "Сайт використовує localStorage. Користуючись сайтом, ви приймаєте <a href=\"polityka-prywatnosci.html\">Політику конфіденційності</a>.",
+    "text": "Сайт використовує localStorage. Користуючись сайтом, ви приймаєте <a href=\"regulamin.html\">Регламент</a> та <a href=\"polityka-prywatnosci.html\">Політику конфіденційності</a>.",
     "accept": "Зрозуміло"
+  },
+  "legal": {
+    "home_notice": "Користуючись сайтом, ви приймаєте <a href=\"regulamin.html\">Регламент</a> та <a href=\"polityka-prywatnosci.html\">Політику конфіденційності</a>.",
+    "bar_label": "Правова інформація:"
+  },
+  "cart": {
+    "title": "Кошик",
+    "empty": "Кошик порожній.",
+    "summary": "Підсумок",
+    "products": "Товари",
+    "shipping": "Доставка",
+    "total": "Разом",
+    "price_on_request": "За запитом",
+    "preorder_note": "Передзамовлення — спочатку погодження та оплата, потім виготовлення (~2 тижні).",
+    "delivery_method": "Спосіб доставки",
+    "shipping_address": "Пакомат / адреса доставки",
+    "shipping_address_ph": "наприклад, код InPost або адреса DPD",
+    "name": "Ім'я та прізвище",
+    "email": "E-mail",
+    "phone": "Телефон (необов'язково)",
+    "message": "Повідомлення до замовлення",
+    "submit": "Надіслати замовлення",
+    "pay_online": "Оплатити онлайн",
+    "note": "Замовлення надсилається на e-mail. Після погодження ціни надішлемо посилання на оплату.",
+    "color": "Колір",
+    "infill": "Заповнення",
+    "personalization": "Персоналізація",
+    "model_type": "Тип: модель STL/3MF",
+    "remove": "Видалити",
+    "increase": "Збільшити кількість",
+    "decrease": "Зменшити кількість",
+    "free_shipping_info": "Безкоштовна доставка від {amount} (вартість товарів).",
+    "free_shipping_applied": "Вітаємо — у вас безкоштовна доставка!",
+    "free_shipping_remaining": "До безкоштовної доставки залишилось {amount}.",
+    "free_shipping_label": "Безкоштовно",
+    "back": "← Назад",
+    "success": "Замовлення надіслано! Відповімо з ціною або посиланням на оплату.",
+    "error_required": "Вкажіть ім'я, e-mail та адресу/пакомат доставки.",
+    "error_submit": "Помилка надсилання. Перевірте активацію FormSubmit на {email}.",
+    "delivery": {
+      "inpost_a": "InPost — габарит A",
+      "inpost_b": "InPost — габарит B",
+      "inpost_c": "InPost — габарит C",
+      "dpd_pickup": "DPD Pickup (до 2 кг)",
+      "dpd_courier": "Кур'єр DPD (до 5 кг)"
+    }
   },
   "footer": {
     "rights": "Усі права захищені.",

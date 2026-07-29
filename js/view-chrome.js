@@ -28,13 +28,17 @@ function openStandalonePage(pageId) {
 
 function leaveStandalonePage({ showSectionId = null, showHome = false } = {}) {
   hideAllContent();
-  if (showHome) {
-    showHomeChrome();
-  } else {
-    showHomeChrome();
-    if (showSectionId) setHidden(showSectionId, false);
+  showHomeChrome();
+  if (showSectionId) {
+    setHidden(showSectionId, false);
+    revealFadeIns(document.getElementById(showSectionId));
   }
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function revealFadeIns(root) {
+  if (!root) return;
+  root.querySelectorAll(".fade-in").forEach((el) => el.classList.add("visible"));
 }
 
 export { hideHomeChrome, showHomeChrome, hideAllContent, openStandalonePage, leaveStandalonePage };
