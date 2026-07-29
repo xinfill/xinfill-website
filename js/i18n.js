@@ -1,7 +1,15 @@
-let currentLang = localStorage.getItem("xinfill-lang") || "pl";
 let translations = {};
 
 const LANGS = ["pl", "en", "ru", "uk"];
+
+function getDomainDefaultLang() {
+  const host = location.hostname.toLowerCase();
+  if (host.endsWith(".eu") || host === "xinfill.eu") return "en";
+  if (host.endsWith(".pl") || host === "xinfill.pl") return "pl";
+  return "pl";
+}
+
+let currentLang = localStorage.getItem("xinfill-lang") || getDomainDefaultLang();
 
 async function loadTranslations(lang) {
   try {

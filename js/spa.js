@@ -37,7 +37,7 @@ function showSection(id, tab) {
 }
 
 function initSpa() {
-  // Hide all panel sections on load (Start = just hero + panels)
+  // Hide all sections on load (Start = hero + slogan + 4 panels)
   PANEL_SECTIONS.forEach((s) => {
     const el = document.getElementById(s);
     if (el) el.hidden = true;
@@ -68,26 +68,11 @@ function initSpa() {
       history.replaceState(null, "", `#${section}`);
       return;
     }
-
-    // For non-panel sections (dostawa, contact) just scroll to them
-    const target = document.getElementById(section);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-
-  // Handle scroll links (dostawa, contact in nav)
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("[data-scroll-to]");
-    if (!link) return;
-    e.preventDefault();
-    const target = document.getElementById(link.dataset.scrollTo);
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Handle initial hash
   const hash = location.hash.replace("#", "");
-  if (hash && PANEL_SECTIONS.includes(hash) && hash !== "shop") {
+  if (hash && PANEL_SECTIONS.includes(hash)) {
     showSection(hash);
   }
 }
