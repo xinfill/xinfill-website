@@ -77,7 +77,8 @@
     "collar_airtag_title": "AirTag collar tag",
     "collar_airtag_desc": "Slot for Apple AirTag on collar.",
     "food_title": "Food container with clicker",
-    "food_desc": "Treat container + training clicker with dog's name."
+    "food_desc": "Treat container + training clicker with dog's name.",
+    "own_file_tip": "Didn't find what you need? Have your own file — <a href=\"/your-file\" data-section=\"custom\" data-tab=\"upload\">fill in the form</a>. If the idea fits, we may add it to the shop."
   },
   "models": {
     "title": "Models for home printing",
@@ -94,7 +95,8 @@
     "collar_nfc_title": "NFC tag — model",
     "collar_airtag_title": "AirTag tag — model",
     "food_title": "Container + clicker — model",
-    "file_desc": "Ready-to-print file. Download link after payment."
+    "file_desc": "Ready-to-print file. Download link after payment.",
+    "own_file_tip": "Looking for another model or have your own STL/3MF? <a href=\"/your-file\" data-section=\"custom\" data-tab=\"upload\">Send the form</a> — we'll see if we can add it."
   },
   "product_idea": {
     "title": "Didn't find what you need?",

@@ -77,7 +77,8 @@
     "collar_airtag_title": "Przypinka na AirTag",
     "collar_airtag_desc": "Miejsce na Apple AirTag w obroży.",
     "food_title": "Pojemnik na karmę z clickerem",
-    "food_desc": "Pojemnik na jedzenie + clicker treningowy z imieniem psa."
+    "food_desc": "Pojemnik na jedzenie + clicker treningowy z imieniem psa.",
+    "own_file_tip": "Nie znalazłeś tego, czego szukasz? Masz własny plik — <a href=\"/wlasny-plik\" data-section=\"custom\" data-tab=\"upload\">wypełnij formularz</a>. Jeśli pomysł pasuje, możemy dodać go do sklepu."
   },
   "models": {
     "title": "Modele do własnego druku",
@@ -94,7 +95,8 @@
     "collar_nfc_title": "Przypinka NFC — model",
     "collar_airtag_title": "Przypinka AirTag — model",
     "food_title": "Pojemnik + clicker — model",
-    "file_desc": "Plik gotowy do druku. Po opłaceniu wysyłamy link do pobrania."
+    "file_desc": "Plik gotowy do druku. Po opłaceniu wysyłamy link do pobrania.",
+    "own_file_tip": "Szukasz innego modelu albo masz własny plik STL/3MF? <a href=\"/wlasny-plik\" data-section=\"custom\" data-tab=\"upload\">Wyślij formularz</a> — zobaczymy, czy dodamy go do oferty."
   },
   "product_idea": {
     "title": "Nie znalazłeś tego, czego szukasz?",

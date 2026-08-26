@@ -584,6 +584,25 @@ img {
   font-style: italic;
 }
 
+.section-tip {
+  margin: 1.5rem auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--gray-light);
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  background: rgba(167, 139, 250, 0.06);
+}
+
+.section-tip a {
+  color: var(--purple-light);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .product-visual {
   display: flex !important;
   align-items: center;

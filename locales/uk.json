@@ -76,7 +76,8 @@
     "collar_airtag_title": "Бірка для AirTag",
     "collar_airtag_desc": "Місце для Apple AirTag.",
     "food_title": "Контейнер для корму з клікером",
-    "food_desc": "Контейнер + клікер з ім'ям собаки."
+    "food_desc": "Контейнер + клікер з ім'ям собаки.",
+    "own_file_tip": "Не знайшли потрібне? Маєте свій файл — <a href=\"/svij-fajl\" data-section=\"custom\" data-tab=\"upload\">заповніть форму</a>. Якщо ідея пасує, можемо додати до магазину."
   },
   "models": {
     "title": "Моделі для власного друку",
@@ -93,7 +94,8 @@
     "collar_nfc_title": "Бірка NFC — модель",
     "collar_airtag_title": "Бірка AirTag — модель",
     "food_title": "Контейнер + клікер — модель",
-    "file_desc": "Файл після оплати."
+    "file_desc": "Файл після оплати.",
+    "own_file_tip": "Шукаєте іншу модель або маєте свій STL/3MF? <a href=\"/svij-fajl\" data-section=\"custom\" data-tab=\"upload\">Надішліть форму</a> — подивимось, чи додамо до пропозиції."
   },
   "product_idea": {
     "title": "Не знайшли те, що шукали?",
