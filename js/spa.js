@@ -63,8 +63,18 @@ function showHome() {
   hideAllContent();
   showHomeChrome();
   hideExtras();
+
+  // Start: wybór paneli, potem widoczne gadżety, potem kontakt/dostawa w stopce
+  const shop = document.getElementById("shop");
+  if (shop) {
+    shop.hidden = false;
+    revealFadeIns(shop);
+  }
+
   document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
-  document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
+  document.querySelectorAll(".nav a[data-section]").forEach((a) => {
+    a.classList.toggle("active", a.dataset.section === "home");
+  });
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
