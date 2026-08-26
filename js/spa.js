@@ -1,6 +1,14 @@
 import { showHomeChrome, hideAllContent } from "./view-chrome.js";
+import { getCurrentLang } from "./i18n.js";
+import {
+  PANEL_SECTIONS,
+  pathFor,
+  parsePath,
+  migrateHashToPath,
+  updateNavHrefs,
+} from "./routes.js";
+import { openProductById } from "./product-modal.js";
 
-const PANEL_SECTIONS = ["shop", "models", "custom", "dostawa", "contact"];
 const EXTRA_PAGES = ["product-page", "cart-page"];
 
 function hideExtras() {
@@ -51,37 +59,58 @@ function showSection(id, tab) {
   }
 }
 
-function handleRoute() {
-  const hash = location.hash.replace(/^#/, "");
-
-  if (!hash || hash === "home") {
-    hideAllContent();
-    showHomeChrome();
-    hideExtras();
-    document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
-    document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-
-  if (hash === "cart") {
-    document.getElementById("cart-toggle")?.click();
-    return;
-  }
-
-  if (PANEL_SECTIONS.includes(hash)) {
-    const tab = hash === "custom" ? new URLSearchParams(location.search).get("tab") : null;
-    showSection(hash, tab);
-    return;
-  }
-
-  // Nieznany hash (np. #product-magnet) — pokaż start, żeby strona nie była pusta
+function showHome() {
   hideAllContent();
   showHomeChrome();
   hideExtras();
   document.querySelectorAll(".nav-panel").forEach((p) => p.classList.remove("active"));
   document.querySelectorAll(".nav a[data-section]").forEach((a) => a.classList.remove("active"));
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function navigate(section, { tab = null, productId = null, replace = false } = {}) {
+  const lang = getCurrentLang();
+  const path = pathFor(section, { tab, productId, lang });
+  if (replace) history.replaceState({ section, tab, productId }, "", path);
+  else history.pushState({ section, tab, productId }, "", path);
+  handleRoute();
+}
+
+function handleRoute() {
+  const lang = getCurrentLang();
+  updateNavHrefs(lang);
+
+  const route = parsePath(location.pathname, lang);
+
+  if (route.section === "home") {
+    showHome();
+    return;
+  }
+
+  if (route.section === "cart") {
+    const page = document.getElementById("cart-page");
+    if (!page || page.hidden) {
+      document.getElementById("cart-toggle")?.click();
+    }
+    return;
+  }
+
+  if (route.section === "product" && route.productId) {
+    const page = document.getElementById("product-page");
+    if (page && !page.hidden) return;
+    if (!openProductById(route.productId)) {
+      showSection("shop");
+      history.replaceState({ section: "shop" }, "", pathFor("shop", { lang }));
+    }
+    return;
+  }
+
+  if (PANEL_SECTIONS.includes(route.section)) {
+    showSection(route.section, route.tab);
+    return;
+  }
+
+  showHome();
 }
 
 function initSpa() {
@@ -92,28 +121,55 @@ function initSpa() {
   hideExtras();
   showHomeChrome();
 
+  const lang = getCurrentLang();
+  migrateHashToPath(lang);
+  updateNavHrefs(lang);
+
   document.addEventListener("click", (e) => {
     const link = e.target.closest("[data-section]");
     if (!link) return;
+    if (link.target === "_blank") return;
 
     e.preventDefault();
     const section = link.dataset.section;
     const tab = link.dataset.tab || null;
 
     if (section === "home") {
-      history.replaceState(null, "", "#home");
-      handleRoute();
+      navigate("home");
+      return;
+    }
+
+    if (section === "custom") {
+      navigate("custom", { tab: tab || "upload" });
       return;
     }
 
     if (PANEL_SECTIONS.includes(section)) {
-      showSection(section, tab);
-      history.replaceState(null, "", `#${section}`);
+      navigate(section, { tab });
     }
   });
 
-  window.addEventListener("hashchange", handleRoute);
+  window.addEventListener("popstate", handleRoute);
   handleRoute();
+
+  document.addEventListener("xinfill-i18n-ready", () => {
+    const nextLang = getCurrentLang();
+    const route = parsePath(location.pathname, nextLang);
+    const nextPath = pathFor(route.section, {
+      tab: route.tab,
+      productId: route.productId,
+      lang: nextLang,
+    });
+    const current = location.pathname.replace(/\/+$/, "") || "/";
+    if (current !== nextPath) {
+      history.replaceState(
+        { section: route.section, tab: route.tab, productId: route.productId },
+        "",
+        nextPath
+      );
+    }
+    updateNavHrefs(nextLang);
+  });
 }
 
-export { initSpa };
+export { initSpa, navigate, handleRoute, showSection, showHome };

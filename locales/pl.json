@@ -145,7 +145,7 @@
     "success": "Dziękujemy! Odezwiemy się z wyceną w ciągu 24–48 h.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz na e-mail.",
     "remove": "Usuń",
-    "consent": "Akceptuję <a href=\"regulamin.html\" target=\"_blank\">Regulamin</a> i <a href=\"polityka-prywatnosci.html\" target=\"_blank\">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.",
+    "consent": "Akceptuję <a href=\"/regulamin.html\" target=\"_blank\">Regulamin</a> i <a href=\"/polityka-prywatnosci.html\" target=\"_blank\">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.",
     "consent_error": "Zaakceptuj Regulamin i Politykę prywatności przed wysłaniem.",
     "how_title": "Jak działa formularz?",
     "how_desc": "Po wysłaniu formularza wiadomość trafia na nasz e-mail (xinfilleu@gmail.com). Odpowiadamy z wyceną — po Twojej akceptacji i płatności zaczynamy druk."
@@ -184,7 +184,7 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href=\"regulamin.html\">Regulamin</a> i <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
+    "text": "Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href=\"/regulamin.html\">Regulamin</a> i <a href=\"/polityka-prywatnosci.html\">Politykę prywatności</a>.",
     "accept": "Rozumiem"
   },
   "legal": {

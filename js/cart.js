@@ -1,6 +1,7 @@
 import { CONFIG } from "./config.js";
-import { t } from "./i18n.js";
+import { t, getCurrentLang } from "./i18n.js";
 import { openStandalonePage, leaveStandalonePage, showHomeChrome } from "./view-chrome.js";
+import { pathFor } from "./routes.js";
 
 const STORAGE_KEY = "xinfill-cart";
 const DELIVERY_STORAGE_KEY = "xinfill-cart-delivery";
@@ -309,12 +310,12 @@ function formatCartText(cart) {
 
 function openCartPage() {
   openStandalonePage("cart-page");
-  history.replaceState(null, "", "#cart");
+  history.replaceState({ section: "cart" }, "", pathFor("cart", { lang: getCurrentLang() }));
 }
 
 function closeCartPage() {
   leaveStandalonePage({ showSectionId: "shop" });
-  history.replaceState(null, "", "#shop");
+  history.replaceState({ section: "shop" }, "", pathFor("shop", { lang: getCurrentLang() }));
 }
 
 function initCart() {

@@ -11,16 +11,20 @@ function getDomainDefaultLang() {
 
 let currentLang = localStorage.getItem("xinfill-lang") || getDomainDefaultLang();
 
+function getCurrentLang() {
+  return currentLang;
+}
+
 async function loadTranslations(lang) {
   try {
-    const res = await fetch(`locales/${lang}.json?v=${Date.now()}`);
+    const res = await fetch(`/locales/${lang}.json?v=${Date.now()}`);
     translations = await res.json();
     currentLang = lang;
     localStorage.setItem("xinfill-lang", lang);
     applyTranslations();
     updateLangButtons();
     document.documentElement.lang = lang;
-    document.dispatchEvent(new CustomEvent("xinfill-i18n-ready"));
+    document.dispatchEvent(new CustomEvent("xinfill-i18n-ready", { detail: { lang } }));
   } catch (e) {
     console.error("Failed to load translations:", e);
   }
@@ -68,4 +72,4 @@ function initI18n() {
   loadTranslations(currentLang);
 }
 
-export { loadTranslations, t, initI18n, currentLang };
+export { loadTranslations, t, initI18n, getCurrentLang, LANGS };

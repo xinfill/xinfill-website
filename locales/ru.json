@@ -144,7 +144,7 @@
     "success": "Спасибо! Ответим в течение 24–48 ч.",
     "error": "Ошибка. Попробуйте снова.",
     "remove": "Удалить",
-    "consent": "Я принимаю <a href=\"regulamin.html\" target=\"_blank\">Условия</a> и <a href=\"polityka-prywatnosci.html\" target=\"_blank\">Политику конфиденциальности</a>.",
+    "consent": "Я принимаю <a href=\"/regulamin.html\" target=\"_blank\">Условия</a> и <a href=\"/polityka-prywatnosci.html\" target=\"_blank\">Политику конфиденциальности</a>.",
     "consent_error": "Примите Условия перед отправкой.",
     "how_title": "Как работает форма?",
     "how_desc": "Сообщение приходит на xinfilleu@gmail.com. Отвечаем с ценой — после оплаты начинаем печать."
@@ -183,7 +183,7 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "Сайт использует localStorage. Используя сайт, вы принимаете <a href=\"regulamin.html\">Условия</a> и <a href=\"polityka-prywatnosci.html\">Политику конфиденциальности</a>.",
+    "text": "Сайт использует localStorage. Используя сайт, вы принимаете <a href=\"/regulamin.html\">Условия</a> и <a href=\"/polityka-prywatnosci.html\">Политику конфиденциальности</a>.",
     "accept": "Понятно"
   },
   "legal": {

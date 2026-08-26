@@ -1,5 +1,7 @@
 import { addToCart } from "./cart.js";
 import { openStandalonePage, leaveStandalonePage } from "./view-chrome.js";
+import { pathFor } from "./routes.js";
+import { getCurrentLang } from "./i18n.js";
 
 const PRODUCTS = {
   gadget: {
@@ -160,13 +162,46 @@ function openProductPage(card) {
   if (addBtn) addBtn.textContent = isModel ? "Kup model (STL)" : "Dodaj do koszyka";
 
   openStandalonePage("product-page");
-  history.replaceState(null, "", `#product-${current.id}`);
+  const lang = getCurrentLang();
+  history.replaceState(
+    { section: "product", productId: current.id },
+    "",
+    pathFor("product", { productId: current.id, lang })
+  );
 }
 
 function closeProductPage() {
   leaveStandalonePage({ showSectionId: returnSection });
   current = null;
-  history.replaceState(null, "", `#${returnSection}`);
+  const lang = getCurrentLang();
+  history.replaceState(
+    { section: returnSection },
+    "",
+    pathFor(returnSection, { lang })
+  );
+}
+
+function openProductById(productId, preferredType = null) {
+  const selectors = [];
+  if (preferredType === "model") {
+    selectors.push(`#models .product-card [data-i18n="models.${productId}_title"]`);
+  } else if (preferredType === "gadget") {
+    selectors.push(`#shop .product-card [data-i18n="shop.${productId}_title"]`);
+  }
+  selectors.push(
+    `#shop .product-card [data-i18n="shop.${productId}_title"]`,
+    `#models .product-card [data-i18n="models.${productId}_title"]`
+  );
+
+  for (const sel of selectors) {
+    const title = document.querySelector(sel);
+    const card = title?.closest(".product-card");
+    if (card) {
+      openProductPage(card);
+      return true;
+    }
+  }
+  return false;
 }
 
 function initProductModal() {
@@ -232,4 +267,4 @@ function initProductModal() {
   });
 }
 
-export { initProductModal };
+export { initProductModal, openProductById };

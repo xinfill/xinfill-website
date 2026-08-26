@@ -145,7 +145,7 @@
     "success": "Thank you! We'll reply within 24–48 hours.",
     "error": "Something went wrong. Try again or email us.",
     "remove": "Remove",
-    "consent": "I accept the <a href=\"regulamin.html\" target=\"_blank\">Terms</a> and <a href=\"polityka-prywatnosci.html\" target=\"_blank\">Privacy Policy</a> and agree to data processing for order fulfillment.",
+    "consent": "I accept the <a href=\"/regulamin.html\" target=\"_blank\">Terms</a> and <a href=\"/polityka-prywatnosci.html\" target=\"_blank\">Privacy Policy</a> and agree to data processing for order fulfillment.",
     "consent_error": "Please accept the Terms and Privacy Policy before submitting.",
     "how_title": "How does the form work?",
     "how_desc": "Your message goes to xinfilleu@gmail.com. We reply with a quote — after you accept and pay, we start printing."
@@ -184,7 +184,7 @@
     "telegram": "Telegram"
   },
   "cookies": {
-    "text": "This site uses localStorage to remember your language. By using the site, you accept our <a href=\"regulamin.html\">Terms</a> and <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
+    "text": "This site uses localStorage to remember your language. By using the site, you accept our <a href=\"/regulamin.html\">Terms</a> and <a href=\"/polityka-prywatnosci.html\">Privacy Policy</a>.",
     "accept": "Got it"
   },
   "legal": {

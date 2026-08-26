@@ -8,22 +8,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="container header-inner">
-      <a href="#home" class="logo" data-section="home">xinfill</a>
+      <a href="/" class="logo" data-section="home">xinfill</a>
       <nav class="nav" id="nav">
-        <a href="#home" data-i18n="nav.home" data-section="home">Start</a>
-        <a href="#shop" data-i18n="nav.shop" data-section="shop">Gadżety</a>
-        <a href="#models" data-i18n="nav.models" data-section="models">Modele</a>
-        <a href="#custom" data-i18n="nav.upload" data-section="custom" data-tab="upload">Własny plik</a>
-        <a href="#custom" data-i18n="nav.calculator" data-section="custom" data-tab="calc">Cennik</a>
-        <a href="#dostawa" data-i18n="nav.delivery" data-section="dostawa">Dostawa</a>
-        <a href="#contact" data-i18n="nav.contact" data-section="contact">Kontakt</a>
+        <a href="/" data-i18n="nav.home" data-section="home">Start</a>
+        <a href="/sklep" data-i18n="nav.shop" data-section="shop">Gadżety</a>
+        <a href="/modele" data-i18n="nav.models" data-section="models">Modele</a>
+        <a href="/wlasny-plik" data-i18n="nav.upload" data-section="custom" data-tab="upload">Własny plik</a>
+        <a href="/cennik" data-i18n="nav.calculator" data-section="custom" data-tab="calc">Cennik</a>
+        <a href="/dostawa" data-i18n="nav.delivery" data-section="dostawa">Dostawa</a>
+        <a href="/kontakt" data-i18n="nav.contact" data-section="contact">Kontakt</a>
       </nav>
       <div class="lang-switcher">
         <button class="lang-btn active" data-lang="pl">PL</button>
@@ -408,7 +408,7 @@
             <div class="form-group form-consent">
               <label class="consent-label">
                 <input type="checkbox" name="consent" id="consent-checkbox" required>
-                <span data-i18n-html="upload.consent">Akceptuję <a href="regulamin.html" target="_blank">Regulamin</a> i <a href="polityka-prywatnosci.html" target="_blank">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.</span>
+                <span data-i18n-html="upload.consent">Akceptuję <a href="/regulamin.html" target="_blank">Regulamin</a> i <a href="/polityka-prywatnosci.html" target="_blank">Politykę prywatności</a> oraz wyrażam zgodę na przetwarzanie danych w celu realizacji zamówienia.</span>
               </label>
             </div>
             <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%" data-i18n="upload.submit">Wyślij zamówienie</button>
@@ -707,9 +707,9 @@
     <div class="container">
       <p class="footer-legal-label" data-i18n="legal.bar_label">Informacje prawne</p>
       <nav class="footer-legal">
-        <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
+        <a href="/regulamin.html" data-i18n="footer.terms">Regulamin</a>
         <span>·</span>
-        <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
+        <a href="/polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
       </nav>
       <p>© 2026 xinfill. <span data-i18n="footer.rights">Wszelkie prawa zastrzeżone.</span></p>
     </div>
@@ -717,11 +717,11 @@
 
   <div class="cookie-banner" id="cookie-banner" hidden>
     <div class="cookie-banner-inner">
-      <p data-i18n-html="cookies.text">Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
+      <p data-i18n-html="cookies.text">Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href="/polityka-prywatnosci.html">Politykę prywatności</a>.</p>
       <button class="btn btn-primary btn-sm" id="cookie-accept" data-i18n="cookies.accept">Rozumiem</button>
     </div>
   </div>
 
-  <script type="module" src="js/main.js?v=20260826"></script>
+  <script type="module" src="/js/main.js?v=20260826e"></script>
 </body>
 </html>
