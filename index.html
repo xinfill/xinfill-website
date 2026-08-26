@@ -94,9 +94,6 @@
           <small data-i18n="panels.models_desc">Kup plik STL i wydrukuj sam</small>
         </button>
       </div>
-      <div class="home-legal-box" id="home-legal">
-        <p class="home-legal-text" data-i18n-html="legal.home_notice">Korzystając ze strony akceptujesz <a href="regulamin.html">Regulamin</a> oraz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
-      </div>
     </div>
   </section>
 
@@ -332,9 +329,9 @@
         </div>
         <div class="upload-form">
           <div class="info-box custom-design-box">
-            <h3 data-i18n="custom_design.title">Nie masz pliku 3D? Zaprojektujemy model</h3>
-            <p data-i18n="custom_design.desc">Osobna, płatna usługa — najpierw wycena projektu, po opłaceniu przygotowujemy model. Druk to kolejny krok.</p>
-            <p class="info-box-note" data-i18n="custom_design.note">Złożone projekty = wyższa cena — zawsze potwierdzamy przed startem.</p>
+            <h3 data-i18n="product_idea.title">Nie znalazłeś tego, czego szukasz?</h3>
+            <p data-i18n="product_idea.desc">Napisz nam pomysł na nowy produkt do sklepu — gadżet, który chciałbyś kupić gotowy. Jeśli pasuje do xinfill, chętnie go dodamy.</p>
+            <p class="info-box-note" data-i18n="product_idea.note">Wystarczy krótki opis w wiadomości przy formularzu albo na e-mail.</p>
           </div>
           <div class="info-box how-form-box">
             <h3 data-i18n="upload.how_title">Jak działa formularz?</h3>
@@ -583,14 +580,6 @@
               <small class="field-hint" data-i18n="colors.custom_note">Inne kolory — potwierdzimy w wiadomości.</small>
             </div>
 
-            <div class="form-group infill-group" id="product-infill-wrap">
-              <label><span data-i18n="infill.label">Wypełnienie (infill)</span>: <strong id="product-infill-val">20%</strong></label>
-              <input type="range" id="product-infill" min="10" max="100" step="5" value="20" data-infill-slider data-infill-target="product-infill-val" data-infill-preview="product-infill-preview">
-              <div class="infill-preview-wrap">
-                <div class="infill-preview" id="product-infill-preview"></div>
-              </div>
-              <small class="field-hint" data-i18n="infill.hint">Wyższe wypełnienie = mocniejszy wydruk, więcej materiału.</small>
-            </div>
           </div>
 
           <div class="form-group" id="product-personalization-wrap">
@@ -716,6 +705,7 @@
 
   <footer class="footer">
     <div class="container">
+      <p class="footer-legal-label" data-i18n="legal.bar_label">Informacje prawne</p>
       <nav class="footer-legal">
         <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
         <span>·</span>
@@ -725,16 +715,6 @@
     </div>
   </footer>
 
-
-  <div class="legal-bar" id="legal-bar">
-    <div class="container legal-bar-inner">
-      <span class="legal-bar-label" data-i18n="legal.bar_label">Informacje prawne:</span>
-      <a href="regulamin.html" data-i18n="footer.terms">Regulamin</a>
-      <span class="legal-bar-sep">·</span>
-      <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka prywatności</a>
-    </div>
-  </div>
-
   <div class="cookie-banner" id="cookie-banner" hidden>
     <div class="cookie-banner-inner">
       <p data-i18n-html="cookies.text">Strona używa localStorage do zapamiętania języka. Korzystając ze strony, akceptujesz <a href="polityka-prywatnosci.html">Politykę prywatności</a>.</p>
@@ -742,6 +722,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/main.js?v=20260729d"></script>
+  <script type="module" src="js/main.js?v=20260826"></script>
 </body>
 </html>

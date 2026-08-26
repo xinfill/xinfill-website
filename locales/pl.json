@@ -96,10 +96,10 @@
     "food_title": "Pojemnik + clicker — model",
     "file_desc": "Plik gotowy do druku. Po opłaceniu wysyłamy link do pobrania."
   },
-  "custom_design": {
-    "title": "Nie masz pliku 3D? Zaprojektujemy model",
-    "desc": "Jeśli potrzebujesz unikalnego gadżetu, ale nie masz pliku STL/3MF — to osobna, płatna usługa projektowania 3D. Najpierw ustalamy zakres i wycenę, po opłaceniu projektu przygotowujemy model. Druk to kolejny krok (osobna wycena).",
-    "note": "Im bardziej złożony pomysł, tym więcej czasu i kosztów — zawsze potwierdzamy cenę przed startem."
+  "product_idea": {
+    "title": "Nie znalazłeś tego, czego szukasz?",
+    "desc": "Napisz nam pomysł na nowy produkt do sklepu — gadżet, który chciałbyś kupić gotowy. Jeśli pasuje do xinfill, chętnie go dodamy.",
+    "note": "Wystarczy krótki opis w wiadomości przy formularzu albo na e-mail."
   },
   "colors": {
     "label": "Kolor wydruku",
@@ -188,8 +188,7 @@
     "accept": "Rozumiem"
   },
   "legal": {
-    "home_notice": "Korzystając ze strony akceptujesz <a href=\"regulamin.html\">Regulamin</a> oraz <a href=\"polityka-prywatnosci.html\">Politykę prywatności</a>.",
-    "bar_label": "Informacje prawne:"
+    "bar_label": "Informacje prawne"
   },
   "cart": {
     "title": "Koszyk",

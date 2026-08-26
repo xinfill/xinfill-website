@@ -96,10 +96,10 @@
     "food_title": "Container + clicker — model",
     "file_desc": "Ready-to-print file. Download link after payment."
   },
-  "custom_design": {
-    "title": "No 3D file? We'll design the model",
-    "desc": "Need a unique gadget but no STL/3MF? Custom 3D design is a separate paid service. We quote first, you pay, then we create the model. Printing is a separate step.",
-    "note": "Complex ideas take more time and cost — we always confirm price before starting."
+  "product_idea": {
+    "title": "Didn't find what you need?",
+    "desc": "Send us an idea for a new shop product — a gadget you'd like to buy ready-made. If it fits xinfill, we'll be happy to add it.",
+    "note": "A short note in the form message or by e-mail is enough."
   },
   "colors": {
     "label": "Print color",
@@ -188,8 +188,7 @@
     "accept": "Got it"
   },
   "legal": {
-    "home_notice": "By using this site you accept our <a href=\"regulamin.html\">Terms</a> and <a href=\"polityka-prywatnosci.html\">Privacy Policy</a>.",
-    "bar_label": "Legal:"
+    "bar_label": "Legal"
   },
   "cart": {
     "title": "Cart",

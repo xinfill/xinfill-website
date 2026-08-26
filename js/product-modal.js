@@ -78,8 +78,7 @@ const PRODUCTS = {
   },
 };
 
-/** Gadgets sold with fixed standard infill (no client choice) */
-const NO_INFILL_IDS = ["magnet"];
+/** Gadgets and models use standard infill — no client slider */
 
 let current = null;
 let returnSection = "shop";
@@ -140,13 +139,12 @@ function openProductPage(card) {
   if (pers) pers.value = "";
 
   const isModel = current.type === "model";
-  const noInfill = isModel || NO_INFILL_IDS.includes(current.id);
 
   page.querySelectorAll(".product-print-options").forEach((el) => {
     el.hidden = isModel;
   });
   const infillWrap = document.getElementById("product-infill-wrap");
-  if (infillWrap) infillWrap.hidden = noInfill;
+  if (infillWrap) infillWrap.hidden = true;
 
   const persWrap = document.getElementById("product-personalization-wrap");
   if (persWrap) persWrap.hidden = isModel;
@@ -180,7 +178,6 @@ function initProductModal() {
   const qtyInput = document.getElementById("product-qty");
   const qtyMinus = document.getElementById("product-qty-minus");
   const qtyPlus = document.getElementById("product-qty-plus");
-  const infill = document.getElementById("product-infill");
 
   closeBtn?.addEventListener("click", closeProductPage);
 
@@ -193,19 +190,11 @@ function initProductModal() {
     qtyInput.value = String(Math.min(50, v + 1));
   });
 
-  infill?.addEventListener("input", () => {
-    const v = infill.value;
-    const label = document.getElementById("product-infill-val");
-    if (label) label.textContent = `${v}%`;
-    document.getElementById("product-infill-preview")?.style.setProperty("--infill-pct", v);
-  });
-
   addBtn?.addEventListener("click", () => {
     if (!current) return;
 
     const qty = Number(document.getElementById("product-qty").value || 1);
     const isModel = current.type === "model";
-    const noInfill = isModel || NO_INFILL_IDS.includes(current.id);
 
     const colorEl = page.querySelector('input[name="product-color"]:checked');
     let color = isModel ? "" : colorEl?.value || "";
@@ -213,7 +202,6 @@ function initProductModal() {
       const custom = document.getElementById("product-color-custom")?.value?.trim();
       color = custom ? `Inny: ${custom}` : "Inny";
     }
-    const infillVal = noInfill ? null : Number(document.getElementById("product-infill").value || 20);
     const personalization = isModel
       ? ""
       : document.getElementById("product-personalization")?.value || "";
@@ -224,7 +212,7 @@ function initProductModal() {
       title: current.title,
       qty,
       color,
-      infill: infillVal,
+      infill: null,
       personalization,
     });
 
