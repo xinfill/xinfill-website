@@ -40,28 +40,12 @@ export const CONFIG = {
   /** Ceny produktów (PLN). null = do wyceny po zamówieniu — uzupełnij gdy ustalisz cennik. */
   productPrices: {
     gadget: {
-      magnet: 30,
-      headphone: 150,
-      keychain: null,
-      whistle: null,
-      coaster: null,
-      controller: null,
-      collar: null,
-      collar_nfc: null,
-      collar_airtag: null,
-      food: null,
+      lipstick_case: null,
+      supplement_box: null,
     },
     model: {
-      magnet: null,
-      headphone: null,
-      keychain: null,
-      whistle: null,
-      coaster: null,
-      controller: null,
-      collar: null,
-      collar_nfc: null,
-      collar_airtag: null,
-      food: null,
+      lipstick_case: null,
+      supplement_box: null,
     },
   },
 

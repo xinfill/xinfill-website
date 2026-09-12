@@ -5,78 +5,32 @@ import { getCurrentLang } from "./i18n.js";
 
 const PRODUCTS = {
   gadget: {
-    magnet: {
-      pl: "Kolorowe magnesy 3D na lodówkę. Zamawiasz zestaw lub pojedynczą sztukę. Wypełnienie jest standardowe — Ty wybierasz kolor (opcjonalnie personalizację).",
-      en: "Colorful 3D fridge magnets. Order a set or single piece. Infill is standard — you choose the color (personalization optional).",
-      ru: "Цветные 3D магниты для холодильника. Закажите набор или одну штуку. Заполнение стандартное — вы выбираете цвет.",
-      uk: "Кольорові 3D магніти для холодильника. Замовляйте набір або одну штуку. Заповнення стандартне — ви обираєте колір.",
+    lipstick_case: {
+      pl: "Etui na pomadkę z fakturą i sercem na wieczku. Drukowane w PLA — lekkie, zamykane, do torebki albo na toaletkę. Na zdjęciach: czarny, fuksja i fiolet. Inny kolor dopisz w zamówieniu.",
+      en: "A textured lipstick case with a heart lid. Printed in PLA — light, closes neatly, for a bag or a vanity. Photos show black, fuchsia and purple. Ask for another color in the order.",
+      ru: "Текстурный футляр для помады с сердечком на крышке. Печать PLA — лёгкий, закрывается, в сумку или на туалетный столик. На фото: чёрный, фуксия и фиолетовый.",
+      uk: "Текстурний футляр для помади із сердечком на кришці. Друк PLA — легкий, закривається, у сумку або на туалетний столик. На фото: чорний, фуксія та фіолетовий.",
     },
-    headphone: {
-      pl: "Stand na słuchawki — stabilna podstawka na biurku. Wygląda dobrze w każdym pokoju, pomaga utrzymać porządek.",
-      en: "Headphone stand — a stable desk holder. Looks great anywhere and keeps your setup tidy.",
-      ru: "Подставка для наушников — стабильная основа на столе. Помогает поддерживать порядок.",
-      uk: "Підставка для навушників — стабільна підкладка на столі. Тримайте порядок.",
-    },
-    keychain: {
-      pl: "Brelok z otwieraczem do butelek. Praktyczny dodatek z Twoim ulubionym stylem.",
-      en: "Keychain with a bottle opener. Practical accessory in your style.",
-      ru: "Брелок с открывалкой для бутылок. Практично и стильно.",
-      uk: "Брелок з відкривачкою для пляшок. Практично та стильно.",
-    },
-    whistle: {
-      pl: "Gwizdek z imieniem zwierzaka. Podczas zamówienia wpisz imię — zrobimy personalizację pod Twój model.",
-      en: "Pet name whistle. Add your pet’s name in the order message — we personalize it.",
-      ru: "Свисток с именем питомца. Укажите имя в сообщении к заказу.",
-      uk: "Свисток з ім’ям тваринки. Напишіть ім’я у повідомленні.",
-    },
-    coaster: {
-      pl: "Podstawka na kubek — chroni blat i wygląda świetnie. Idealna do domu i biura.",
-      en: "Cup coaster — protects your desk and looks great. Perfect for home and office.",
-      ru: "Подставка под кружку — защищает поверхность и отлично выглядит.",
-      uk: "Підставка під кружку — захищає поверхню та гарно виглядає.",
-    },
-    controller: {
-      pl: "Stand na pada — wygodny uchwyt na kontroler do konsoli lub PC.",
-      en: "Gamepad stand — convenient holder for your controller.",
-      ru: "Подставка для геймпада — удобный держатель для контроллера.",
-      uk: "Підставка для геймпада — зручний тримач для контролера.",
-    },
-    collar: {
-      pl: "Przypinka na obrożę: imię psa + numer telefonu właściciela. Wpisz dane w personalizacji.",
-      en: "Dog collar tag: pet name + owner phone number. Enter the details in personalization.",
-      ru: "Бирка на ошейник: имя собаки + телефон владельца. Укажите данные в персонализации.",
-      uk: "Підвіска на нашийник: ім’я собаки + телефон власника. Вкажіть дані у персоналізації.",
-    },
-    collar_nfc: {
-      pl: "Przypinka z tagiem NFC: jak zwykła przypinka + dane kontaktowe w tagu. Wpisz dane w personalizacji.",
-      en: "NFC collar tag: like a regular tag + contact data inside NFC. Enter the details.",
-      ru: "Бирка NFC: как обычная + контактные данные в NFC. Укажите данные.",
-      uk: "Підвіска NFC: як звичайна + контактні дані в NFC. Вкажіть дані.",
-    },
-    collar_airtag: {
-      pl: "Przypinka na AirTag: miejsce na Apple AirTag w obroży. Wpisz dane i dopasujemy model pod wybór.",
-      en: "AirTag collar tag: slot for Apple AirTag. Enter details and we’ll match the model.",
-      ru: "Бирка для AirTag: место под Apple AirTag. Укажите данные — подберём модель.",
-      uk: "Підвіска для AirTag: місце під Apple AirTag. Укажіть дані — підберемо модель.",
-    },
-    food: {
-      pl: "Pojemnik na karmę z clickerem i imieniem psa. Wpisz imię — przygotujemy personalizację.",
-      en: "Food container + clicker with your dog’s name. Add the name — we’ll personalize it.",
-      ru: "Контейнер для корма + кликер с именем собаки. Укажите имя в заказе.",
-      uk: "Контейнер для корму + клікер з ім’ям собаки. Напишіть ім’я.",
+    supplement_box: {
+      pl: "Okrągłe pudełko na suplementy z wieczkiem i trzema przegródkami. Witaminy, tabletki i drobiazgi w jednym miejscu — bez mieszania się w torebce.",
+      en: "A round supplement box with a lid and three compartments. Vitamins, tablets and small bits stay sorted — nothing mixed in the bag.",
+      ru: "Круглая коробочка для БАДов с крышкой и тремя отделениями. Витамины и таблетки лежат отдельно, ничего не смешивается.",
+      uk: "Кругла коробочка для добавок із кришкою і трьома відділеннями. Вітаміни та таблетки лежать окремо, нічого не змішується.",
     },
   },
   model: {
-    magnet: { pl: "Model STL/3MF do samodzielnego druku na Twojej drukarce.", en: "STL/3MF model for printing on your printer.", ru: "STL/3MF модель для печати на вашем принтере.", uk: "STL/3MF модель для друку на вашому принтері." },
-    headphone: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    keychain: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    whistle: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF model — you personalize it yourself.", ru: "STL/3MF — персонализируйте у себя.", uk: "STL/3MF — персоналізуйте у себе." },
-    coaster: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    controller: { pl: "Model STL/3MF do samodzielnego druku.", en: "STL/3MF model for printing.", ru: "STL/3MF для печати.", uk: "STL/3MF для друку." },
-    collar: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF — personalize on your side.", ru: "STL/3MF — персонализация у вас.", uk: "STL/3MF — персоналізація у вас." },
-    collar_nfc: { pl: "Model STL/3MF — NFC i personalizację przygotowujesz u siebie.", en: "STL/3MF — NFC and personalization on your side.", ru: "STL/3MF — NFC вы настраиваете у себя.", uk: "STL/3MF — NFC налаштовуєте у себе." },
-    collar_airtag: { pl: "Model STL/3MF — miejsce pod AirTag w gotowym wymiarze.", en: "STL/3MF — AirTag slot in ready dimensions.", ru: "STL/3MF — место под AirTag.", uk: "STL/3MF — слот під AirTag." },
-    food: { pl: "Model STL/3MF — personalizację robisz u siebie.", en: "STL/3MF — personalize yourself.", ru: "STL/3MF — персонализация у вас.", uk: "STL/3MF — персоналізація у вас." },
+    lipstick_case: {
+      pl: "Model STL/3MF etui na pomadkę — do samodzielnego druku na Twojej drukarce.",
+      en: "STL/3MF lipstick case — print it on your own printer.",
+      ru: "STL/3MF футляр для помады — печать на вашем принтере.",
+      uk: "STL/3MF футляр для помади — друк на вашому принтері.",
+    },
+    supplement_box: {
+      pl: "Model STL/3MF pudełka na suplementy (3 przegródki) — do samodzielnego druku.",
+      en: "STL/3MF supplement box (3 compartments) — print it yourself.",
+      ru: "STL/3MF коробочка для БАДов (3 отделения) — печать у себя.",
+      uk: "STL/3MF коробочка для добавок (3 відділення) — друк у себе.",
+    },
   },
 };
 
@@ -102,6 +56,52 @@ function extractProductKeyFromCard(card) {
   return { type, id };
 }
 
+function galleryFromCard(card) {
+  const listed = (card.dataset.images || "")
+    .split("|")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (listed.length) return listed;
+  const src = card.querySelector(".product-photo img, .product-img img")?.getAttribute("src");
+  return src ? [src] : [];
+}
+
+function renderProductGallery(card, title) {
+  const destImg = document.getElementById("product-page-img");
+  const thumbs = document.getElementById("product-thumbs");
+  if (!destImg) return;
+
+  const images = galleryFromCard(card);
+  const alt = title || "";
+
+  if (images.length) {
+    destImg.className = "product-img product-photo";
+    destImg.innerHTML = `<img src="${images[0]}" alt="${alt}">`;
+  } else {
+    const srcVisual = card.querySelector(".product-visual, .product-img");
+    destImg.className = srcVisual?.className || "product-img product-visual";
+    const icon = srcVisual?.querySelector(".pv-icon")?.textContent || "🛒";
+    destImg.innerHTML = `<span class="pv-icon">${icon}</span>`;
+  }
+
+  if (!thumbs) return;
+  if (images.length < 2) {
+    thumbs.hidden = true;
+    thumbs.innerHTML = "";
+    return;
+  }
+
+  thumbs.hidden = false;
+  thumbs.innerHTML = images
+    .map(
+      (src, i) =>
+        `<button type="button" class="product-thumb${i === 0 ? " is-active" : ""}" data-src="${src}" aria-label="${i + 1}">
+           <img src="${src}" alt="">
+         </button>`
+    )
+    .join("");
+}
+
 function openProductPage(card) {
   const page = document.getElementById("product-page");
   if (!page) return;
@@ -123,13 +123,7 @@ function openProductPage(card) {
   const info = PRODUCTS[current.type]?.[current.id];
   document.getElementById("product-modal-long").textContent = info ? pickLang(info) : "";
 
-  const srcVisual = card.querySelector(".product-visual, .product-img");
-  const destImg = document.getElementById("product-page-img");
-  if (srcVisual && destImg) {
-    destImg.className = srcVisual.className;
-    const icon = srcVisual.querySelector(".pv-icon")?.textContent || "🛒";
-    destImg.innerHTML = `<span class="pv-icon">${icon}</span>`;
-  }
+  renderProductGallery(card, current.title);
 
   const colorRadio = page.querySelector('input[name="product-color"][value="Czarny"]');
   if (colorRadio) colorRadio.checked = true;
@@ -149,7 +143,8 @@ function openProductPage(card) {
   if (infillWrap) infillWrap.hidden = true;
 
   const persWrap = document.getElementById("product-personalization-wrap");
-  if (persWrap) persWrap.hidden = isModel;
+  const needsPers = ["whistle", "collar", "collar_nfc", "collar_airtag", "food"].includes(current.id);
+  if (persWrap) persWrap.hidden = isModel || !needsPers;
 
   if (pers && !isModel) {
     const required = ["whistle", "collar", "collar_nfc", "collar_airtag", "food"].includes(current.id);
@@ -213,8 +208,20 @@ function initProductModal() {
   const qtyInput = document.getElementById("product-qty");
   const qtyMinus = document.getElementById("product-qty-minus");
   const qtyPlus = document.getElementById("product-qty-plus");
+  const thumbs = document.getElementById("product-thumbs");
 
   closeBtn?.addEventListener("click", closeProductPage);
+
+  thumbs?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".product-thumb");
+    if (!btn) return;
+    const src = btn.dataset.src;
+    const img = document.querySelector("#product-page-img img");
+    if (img && src) img.src = src;
+    thumbs.querySelectorAll(".product-thumb").forEach((el) => {
+      el.classList.toggle("is-active", el === btn);
+    });
+  });
 
   qtyMinus?.addEventListener("click", () => {
     const v = Number(qtyInput.value || 1);

@@ -668,6 +668,7 @@ img {
 .sw-black { background: #111; }
 .sw-white { background: #f0f0f5; }
 .sw-purple { background: #7c3aed; }
+.sw-fuchsia { background: #c2185b; }
 .sw-custom {
   background: linear-gradient(135deg, #111, #7c3aed, #f0f0f5);
 }
@@ -877,8 +878,9 @@ img {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
   gap: 1.25rem;
+  justify-content: center;
 }
 
 .product-slot {
@@ -1124,6 +1126,7 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -1138,6 +1141,56 @@ img {
   justify-content: center;
   font-size: 3rem;
   position: relative;
+}
+
+.product-photo {
+  height: 320px;
+  padding: 0;
+  background: #120c16;
+}
+
+.product-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  display: block;
+}
+
+.product-photo img[src*="supplement-box"] {
+  object-position: center 78%;
+}
+
+.product-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.product-thumb {
+  border: 2px solid var(--gray-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  background: #120c16;
+  cursor: pointer;
+  width: 68px;
+  flex: 0 0 68px;
+  aspect-ratio: 3 / 4;
+  transition: var(--transition);
+}
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-thumb.is-active,
+.product-thumb:hover {
+  border-color: var(--purple-light);
 }
 
 .product-badge {
@@ -2001,6 +2054,20 @@ img {
   align-items: center;
   justify-content: center;
   font-size: 5rem;
+}
+
+.product-page-visual .product-photo {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  min-height: 0;
+  max-height: 72vh;
+  overflow: hidden;
+  background: #120c16;
+}
+
+.product-page-visual .product-photo img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .product-page-content h1 {
