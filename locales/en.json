@@ -62,6 +62,16 @@
     "lipstick_case_desc": "Textured case with a heart lid. Black, fuchsia or purple — other colors on request.",
     "supplement_box_title": "Supplement box",
     "supplement_box_desc": "Round box with a lid and three compartments for tablets and vitamins.",
+    "pen_holder_title": "Pen holder",
+    "pen_holder_desc": "Ribbed desk cup — ideal for pens, pencils and accessories.",
+    "cotton_holder_title": "Cotton pad dispenser",
+    "cotton_holder_desc": "Ribbed container with a convenient cutout — for cotton pads or small items.",
+    "square_vase_title": "Square container",
+    "square_vase_desc": "Minimalist ribbed square container / planter cover for desk or flowers.",
+    "soap_dish_title": "Tray / soap dish",
+    "soap_dish_desc": "Oval ribbed dish with drainage ridges — for soap, sponge or jewelry.",
+    "flower_vase_title": "Flower vase",
+    "flower_vase_desc": "Elegant vase with braided texture — for fresh and dried flowers.",
     "own_file_tip": "Didn't find what you need? Have your own file or an idea for a new gadget — <a href=\"/your-file\" data-section=\"custom\" data-tab=\"upload\">fill in the form</a>. We'll see if we can add it to the shop."
   },
   "models": {
@@ -71,6 +81,11 @@
     "buy": "Buy model",
     "lipstick_case_title": "Lipstick case — model",
     "supplement_box_title": "Supplement box — model",
+    "pen_holder_title": "Pen holder — model",
+    "cotton_holder_title": "Cotton pad dispenser — model",
+    "square_vase_title": "Square container — model",
+    "soap_dish_title": "Tray / soap dish — model",
+    "flower_vase_title": "Flower vase — model",
     "file_desc": "Ready-to-print file. Download link after payment.",
     "own_file_tip": "Didn't find what you need? Have your own file or an idea for a new model — <a href=\"/your-file\" data-section=\"custom\" data-tab=\"upload\">fill in the form</a>. We'll see if we can add it."
   },

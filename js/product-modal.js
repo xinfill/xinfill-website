@@ -6,30 +6,90 @@ import { getCurrentLang } from "./i18n.js";
 const PRODUCTS = {
   gadget: {
     lipstick_case: {
-      pl: "Etui na pomadkę z fakturą i sercem na wieczku. Drukowane w PLA — lekkie, zamykane, do torebki albo na toaletkę. Na zdjęciach: czarny, fuksja i fiolet. Inny kolor dopisz w zamówieniu.",
-      en: "A textured lipstick case with a heart lid. Printed in PLA — light, closes neatly, for a bag or a vanity. Photos show black, fuchsia and purple. Ask for another color in the order.",
-      ru: "Текстурный футляр для помады с сердечком на крышке. Печать PLA — лёгкий, закрывается, в сумку или на туалетный столик. На фото: чёрный, фуксия и фиолетовый.",
-      uk: "Текстурний футляр для помади із сердечком на кришці. Друк PLA — легкий, закривається, у сумку або на туалетний столик. На фото: чорний, фуксія та фіолетовий.",
+      pl: "Etui na pomadkę z fakturą i sercem na wieczku. Drukowane w PLA — lekkie, zamykane na gwint, idealne do torebki albo na toaletkę. Na zdjęciach: czarny, fuksja i fiolet. Inny kolor dopisz w zamówieniu.",
+      en: "A textured lipstick case with a heart lid. Printed in PLA — light, screw-top closure, great for a bag or a vanity. Photos show black, fuchsia and purple. Ask for another color in the order.",
+      ru: "Текстурный футляр для помады с сердечком на крышке. Печать PLA — лёгкий, закрывается на резьбу, в сумку или на туалетный столик. На фото: чёрный, фуксия и фиолетовый.",
+      uk: "Текстурний футляр для помади із сердечком на кришці. Друк PLA — легкий, закривається на різьбу, у сумку або на туалетний столик. На фото: чорний, фуксія та фіолетовий.",
     },
     supplement_box: {
-      pl: "Okrągłe pudełko na suplementy z wieczkiem i trzema przegródkami. Witaminy, tabletki i drobiazgi w jednym miejscu — bez mieszania się w torebce.",
-      en: "A round supplement box with a lid and three compartments. Vitamins, tablets and small bits stay sorted — nothing mixed in the bag.",
+      pl: "Okrągłe pudełko na suplementy z zakręcanym wieczkiem i trzema przegródkami. Witaminy, tabletki i drobiazgi w jednym miejscu — bez mieszania się w torebce czy plecaku.",
+      en: "A round supplement box with a screw lid and three compartments. Vitamins, tablets and small bits stay sorted — nothing mixed in the bag.",
       ru: "Круглая коробочка для БАДов с крышкой и тремя отделениями. Витамины и таблетки лежат отдельно, ничего не смешивается.",
       uk: "Кругла коробочка для добавок із кришкою і трьома відділеннями. Вітаміни та таблетки лежать окремо, нічого не змішується.",
+    },
+    pen_holder: {
+      pl: "Okrągły, żebrowany kubek / organizer na biurko. Idealny na długopisy, ołówki, pędzle do makijażu lub drobne akcesoria biurowe. Stabilny, trwały i estetyczny wydruk 3D.",
+      en: "Round ribbed desk cup / organizer. Ideal for pens, pencils, makeup brushes or office accessories. Stable, durable and sleek 3D print.",
+      ru: "Круглый ребристый стакан-органайзер для стола. Идеально подходит для ручек, карандашей, кистей или мелочей.",
+      uk: "Круглий ребристий стакан-органайзер для столу. Ідеально підходить для ручок, олівців, пензлів або дрібниць.",
+    },
+    cotton_holder: {
+      pl: "Żebrowany pojemnik z wygodnym bocznym wycięciem — zaprojektowany jako podajnik na płatki kosmetyczne lub organizer na drobiazgi na toaletkę i do łazienki.",
+      en: "Ribbed cylindrical holder with a convenient side cutout — designed as a cotton pad dispenser or vanity organizer for bathroom and desk essentials.",
+      ru: "Ребристый органайзер с удобным боковым вырезом — идеально подходит для ватных дисков или косметических мелочей.",
+      uk: "Ребристий органайзер зі зручним бічним вирізом — ідеально підходить для ватних дисків або косметичних дрібниць.",
+    },
+    square_vase: {
+      pl: "Minimalistyczny pojemnik kwadratowy z pionowym żebrowaniem. Świetnie sprawdza się jako nowoczesny organizer na biurko, osłonka lub wazon na suche kompozycje.",
+      en: "Minimalist square container with vertical ribbing. Works great as a modern desk organizer, planter cover or vase for dried arrangements.",
+      ru: "Минималистичный квадратный органайзер с вертикальным рифлением. Подойдёт для рабочего стола или сухих цветов.",
+      uk: "Мінімалістичний квадратний органайзер із вертикальним рифленням. Підійде для робочого столу або сухоцвітів.",
+    },
+    soap_dish: {
+      pl: "Owalna podstawka / mydelniczka z żebrowanym brzegiem i wewnętrznymi wypustkami odprowadzającymi wodę. Doskonała do łazienki na mydło w kostce, gąbkę lub jako tacka na biżuterię.",
+      en: "Oval tray / soap dish with a ribbed rim and raised inner ridges for drainage. Perfect for bar soap, sponges or as a jewelry tray.",
+      ru: "Овальная мыльница / подставка с ребристым бортиком и выступами внутри. Отлично подходит для мыла, губки или украшений.",
+      uk: "Овальна мильниця / підставка з ребристим бортиком і виступами всередині. Чудово підходить для мила, губки або прикрас.",
+    },
+    flower_vase: {
+      pl: "Dekoracyjny wazon z unikalną plecioną teksturą. Nowoczesna forma, która przyciąga wzrok i pasuje zarówno do kwiatów suszonych, jak i ciętych.",
+      en: "Decorative vase with a unique braided chevron texture. A modern statement piece suitable for both dried and fresh flowers.",
+      ru: "Декоративная ваза с уникальной плетёной текстурой. Современный акцент для сухоцветов и живых цветов.",
+      uk: "Декоративна ваза з унікальною плетеною текстурою. Сучасний акцент для сухоцвітів і живих квітів.",
     },
   },
   model: {
     lipstick_case: {
-      pl: "Model STL/3MF etui na pomadkę — do samodzielnego druku na Twojej drukarce.",
-      en: "STL/3MF lipstick case — print it on your own printer.",
+      pl: "Model STL/3MF etui na pomadkę z sercem — do samodzielnego druku na Twojej drukarce 3D.",
+      en: "STL/3MF lipstick case with heart lid — print it on your own 3D printer.",
       ru: "STL/3MF футляр для помады — печать на вашем принтере.",
       uk: "STL/3MF футляр для помади — друк на вашому принтері.",
     },
     supplement_box: {
-      pl: "Model STL/3MF pudełka na suplementy (3 przegródki) — do samodzielnego druku.",
-      en: "STL/3MF supplement box (3 compartments) — print it yourself.",
+      pl: "Model STL/3MF pudełka na suplementy (3 przegródki + zakręcane wieczko) — do samodzielnego druku.",
+      en: "STL/3MF supplement box (3 compartments + lid) — print it yourself.",
       ru: "STL/3MF коробочка для БАДов (3 отделения) — печать у себя.",
       uk: "STL/3MF коробочка для добавок (3 відділення) — друк у себе.",
+    },
+    pen_holder: {
+      pl: "Model STL/3MF okrągłego żebrowanego organizera na długopisy — gotowy do druku 3D.",
+      en: "STL/3MF round ribbed pen holder — ready for 3D printing.",
+      ru: "STL/3MF круглый ребристый органайзер для ручек — для печати у себя.",
+      uk: "STL/3MF круглий ребристий органайзер для ручок — для друку у себе.",
+    },
+    cotton_holder: {
+      pl: "Model STL/3MF podajnika na płatki kosmetyczne z wycięciem — do samodzielnego druku.",
+      en: "STL/3MF cotton pad holder with side cutout — print it yourself.",
+      ru: "STL/3MF органайзер для ватных дисков с вырезом — для печати у себя.",
+      uk: "STL/3MF органайзер для ватних дисків із вирізом — для друку у себе.",
+    },
+    square_vase: {
+      pl: "Model STL/3MF kwadratowego pojemnika żebrowanego — do samodzielnego druku.",
+      en: "STL/3MF square ribbed container — print it on your own printer.",
+      ru: "STL/3MF квадратный ребристый органайзер — для печати у себя.",
+      uk: "STL/3MF квадратний ребристий органайзер — для друку у себе.",
+    },
+    soap_dish: {
+      pl: "Model STL/3MF owalnej mydelniczki / podstawki — do samodzielnego druku 3D.",
+      en: "STL/3MF oval soap dish / tray — print it on your own 3D printer.",
+      ru: "STL/3MF овальная мыльница / подставка — для печати у себя.",
+      uk: "STL/3MF овальна мильниця / підставка — для друку у себе.",
+    },
+    flower_vase: {
+      pl: "Model STL/3MF wazonu na kwiaty z plecioną fakturą — do samodzielnego druku.",
+      en: "STL/3MF braided texture flower vase — print it yourself.",
+      ru: "STL/3MF ваза для цветов с плетёной текстурой — для печати у себя.",
+      uk: "STL/3MF ваза для квітів із плетеною текстурою — для друку у себе.",
     },
   },
 };
@@ -46,24 +106,46 @@ function pickLang(obj) {
   return obj[key] || obj.pl || "";
 }
 
+function normalizeImgSrc(src) {
+  const clean = String(src || "").trim();
+  if (!clean) return "";
+  if (clean.startsWith("http://") || clean.startsWith("https://") || clean.startsWith("/")) {
+    return clean;
+  }
+  return `/${clean.replace(/^\.?\//, "")}`;
+}
+
 function extractProductKeyFromCard(card) {
+  const type = card.classList.contains("model-card") ? "model" : "gadget";
+  if (card.dataset.productId) {
+    return { type, id: card.dataset.productId };
+  }
   const h3 = card.querySelector(".product-info h3");
   const dataI18n = h3?.dataset?.i18n;
-  if (!dataI18n) return null;
-  const [, rest] = String(dataI18n).split(".");
-  const id = rest?.replace("_title", "");
-  const type = card.classList.contains("model-card") ? "model" : "gadget";
-  return { type, id };
+  if (dataI18n) {
+    const [, rest] = String(dataI18n).split(".");
+    const id = rest?.replace("_title", "");
+    if (id) return { type, id };
+  }
+  const fallbackTitle = h3?.textContent?.trim() || "";
+  if (fallbackTitle) {
+    const slug = fallbackTitle
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/gi, "_")
+      .replace(/^_+|_+$/g, "");
+    return { type, id: slug || "custom_item" };
+  }
+  return null;
 }
 
 function galleryFromCard(card) {
   const listed = (card.dataset.images || "")
     .split("|")
-    .map((s) => s.trim())
+    .map((s) => normalizeImgSrc(s))
     .filter(Boolean);
   if (listed.length) return listed;
   const src = card.querySelector(".product-photo img, .product-img img")?.getAttribute("src");
-  return src ? [src] : [];
+  return src ? [normalizeImgSrc(src)] : [];
 }
 
 function renderProductGallery(card, title) {
@@ -121,7 +203,7 @@ function openProductPage(card) {
   document.getElementById("product-modal-short").textContent = short;
 
   const info = PRODUCTS[current.type]?.[current.id];
-  document.getElementById("product-modal-long").textContent = info ? pickLang(info) : "";
+  document.getElementById("product-modal-long").textContent = info ? pickLang(info) : short;
 
   renderProductGallery(card, current.title);
 
@@ -179,18 +261,26 @@ function closeProductPage() {
 function openProductById(productId, preferredType = null) {
   const selectors = [];
   if (preferredType === "model") {
-    selectors.push(`#models .product-card [data-i18n="models.${productId}_title"]`);
+    selectors.push(
+      `#models .product-card[data-product-id="${productId}"]`,
+      `#models .product-card [data-i18n="models.${productId}_title"]`
+    );
   } else if (preferredType === "gadget") {
-    selectors.push(`#shop .product-card [data-i18n="shop.${productId}_title"]`);
+    selectors.push(
+      `#shop .product-card[data-product-id="${productId}"]`,
+      `#shop .product-card [data-i18n="shop.${productId}_title"]`
+    );
   }
   selectors.push(
+    `#shop .product-card[data-product-id="${productId}"]`,
+    `#models .product-card[data-product-id="${productId}"]`,
     `#shop .product-card [data-i18n="shop.${productId}_title"]`,
     `#models .product-card [data-i18n="models.${productId}_title"]`
   );
 
   for (const sel of selectors) {
-    const title = document.querySelector(sel);
-    const card = title?.closest(".product-card");
+    const el = document.querySelector(sel);
+    const card = el?.closest(".product-card");
     if (card) {
       openProductPage(card);
       return true;
