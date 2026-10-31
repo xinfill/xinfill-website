@@ -1,7 +1,7 @@
 import { CONFIG } from "./config.js";
 import { initI18n } from "./i18n.js";
 import { initCalculator, initTabs } from "./calculator.js";
-import { initUpload } from "./upload.js";
+import { initUpload } from "./upload.js?v=20261031c";
 import { initInfillSliders, initColorPickers } from "./ui.js";
 import { initCart, refreshCartUi } from "./cart.js";
 import { initProductModal } from "./product-modal.js";
